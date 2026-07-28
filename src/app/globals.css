@@ -1,26 +1,246 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------- Design tokens ---------- */
+@theme {
+  /* Paper / ink — clean white with soft neutral supports */
+  --color-paper: #ffffff;
+  --color-paper-deep: #f4f4f2;
+  --color-paper-edge: #e5e4e0;
+
+  --color-ink: #221f1c;
+  --color-ink-soft: #55504a;
+  --color-ink-faint: #8a857e;
+
+  /* Primary accent — now a deep studio blue (formerly oxblood crimson).
+     The token is still named `crimson` so every text-crimson / bg-crimson
+     / color="crimson" usage picks up the new blue without a rename. */
+  --color-crimson: #274b73;       /* deep studio blue (primary) */
+  --color-crimson-deep: #18324d;  /* darker, for hover/pressed only */
+  --color-brick: #9b3a2e;         /* brick red — secondary accent */
+
+  /* Deep blues — renamed from "slate" to avoid Tailwind v4 default-scale collision */
+  --color-harbour: #5e657b;
+  --color-harbour-deep: #404659;
+  --color-harbour-soft: #aab1c2;
+
+  /* Soft sky */
+  --color-wash: #94b1c8;
+  --color-wash-deep: #6f8aa3;
+  --color-wash-soft: #cfdce5;
+
+  /* Type — --font-display/sans/script are set by next/font on <html>;
+     we declare them here with fallbacks so Tailwind generates the
+     .font-display / .font-sans / .font-script utilities. */
+  /* Headings and body both run on Archivo now — sans throughout.
+     --font-display kept as a token so existing `.font-display` /
+     heading rules keep working; it just points at the sans stack. */
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-archivo);
+  --font-script: "Homemade Apple", "Beth Ellen", cursive;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  /* Shadow */
+  --shadow-paper: 0 1px 0 rgba(44, 38, 32, 0.04), 0 8px 24px -12px rgba(44, 38, 32, 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------- Base ---------- */
+:root { color-scheme: light; }
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Soft grid + faint paper tooth across the whole page. Grid lines are
+   very low-contrast so they read as structure, not a table. The noise
+   texture keeps the "paper" feel now that the cream is gone. */
+body {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(rgba(34, 31, 28, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 31, 28, 0.035) 1px, transparent 1px),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/></svg>");
+  background-size: 46px 46px, 46px 46px, 240px 240px;
+}
+
+/* Smooth in-page scroll for anchor links (the /classes table-of-contents
+   chips, FAQ section pills, etc.). Gated on `no-preference` so users
+   with reduce-motion enabled still get the instant jump they expect. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  /* Default heading font — now Archivo (sans). Wrapped in @layer base so
+     any utility class (e.g. font-script, font-mono) can override without
+     having to fight unlayered specificity. */
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+::selection {
+  background: var(--color-crimson);
+  color: var(--color-paper);
+}
+
+/* Filter library helper */
+.kasr-defs { position: absolute; width: 0; height: 0; pointer-events: none; }
+
+/* ---------- Painterly utilities ---------- */
+
+/* Grain overlay — warm tooth */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");
+  }
+}
+
+/* Paper texture — fibrous, slightly stained */
+@utility paper {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(circle at 22% 14%, rgba(148, 177, 200, 0.10) 0, transparent 38%),
+    radial-gradient(circle at 78% 72%, rgba(76, 5, 12, 0.05) 0, transparent 36%),
+    radial-gradient(circle at 50% 95%, rgba(94, 101, 123, 0.05) 0, transparent 50%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23p)' opacity='0.55'/></svg>");
+  background-size: auto, auto, auto, 280px 280px;
+}
+
+/* Rough hand-cut edges — for cards / panels */
+@utility deckle {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    border: 1px solid var(--color-paper-edge);
+    border-radius: inherit;
+    filter: url(#kasr-deckle);
+  }
+}
+
+/* ─── Student works ticker ──────────────────────────────────
+   Pure-CSS marquee. The track contains the items twice; we translate
+   from 0 to -50% of the track's total width so the loop is seamless.
+   See StudentWorksTicker.tsx for the JSX. */
+.student-ticker {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Fade edges so cards don't pop in/out abruptly. */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+.student-ticker__track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  list-style: none;
+  padding: 0.75rem 0; /* leave room for the deckle border + shadow */
+  margin: 0;
+  animation: student-ticker-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.student-ticker:hover .student-ticker__track,
+.student-ticker:focus-within .student-ticker__track {
+  animation-play-state: paused;
+}
+
+.student-ticker__item {
+  flex: 0 0 auto;
+  width: 11rem;
+}
+
+@media (min-width: 640px) {
+  .student-ticker__track {
+    gap: 1.5rem;
+  }
+  .student-ticker__item {
+    width: 14rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .student-ticker__item {
+    width: 17rem;
+  }
+}
+
+@keyframes student-ticker-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Soften rather than disable. A slow drift is ambient enough not to
+     trigger vestibular reactions, and preserves the design intent.
+     If a user has reduce-motion set, slow the loop to ~3 minutes. */
+  .student-ticker__track {
+    animation-duration: 180s;
+  }
+}
+
+/* Hand-drawn underline */
+@utility brushed-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-crimson);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    bottom: -3px;
+    height: 7px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 7' preserveAspectRatio='none'><filter id='r'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feDisplacementMap in='SourceGraphic' scale='1.4'/></filter><path d='M1 4 C 20 1, 40 5, 60 3 S 90 5, 99 2' stroke='%234c050c' stroke-width='1.7' fill='none' stroke-linecap='round' opacity='0.9' filter='url(%23r)'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
 }

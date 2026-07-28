@@ -1,0 +1,265 @@
+import Link from "next/link";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { NavBar } from "@/components/NavBar";
+import { Footer } from "@/components/Footer";
+import { Button } from "@/components/Button";
+import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { PaintStroke } from "@/components/PaintStroke";
+
+export const metadata = {
+  title: "Kids Cartooning & Illustration (Grade 3-5)",
+  description: "This class is designed for students ages 7-10, offering a balance of creativity and foundational skill-building. From imaginative exploration to structured learning, students gain confidence in their artistic abilities while learning how to create with intention."
+};
+
+const sessionFlow = [
+  {
+    when: "Warm-up",
+    title: "Quick observation drawing",
+    body: "A short drawing prompt — a still life setup, a character, a hand — to get pencils moving and eyes warmed up.",
+  },
+  {
+    when: "Lesson",
+    title: "A real concept",
+    body: "Each session has one foundation idea: line weight, proportion, color mixing, shading. Demonstrated, then practiced.",
+  },
+  {
+    when: "Project",
+    title: "Build something",
+    body: "Themed projects across cartooning, illustration, painting, and printmaking — students apply the lesson to a piece they actually want to make.",
+  },
+  {
+    when: "Critique",
+    title: "Quick share",
+    body: "Pieces go up. Teachers talk about what's working and what to push next. Students see each other's work and ideas.",
+  },
+] as const;
+
+const skills = [
+  {
+    title: "Drawing fundamentals",
+    body: "Line, shape, contour, proportion — drawn from life, not just imagination. The base every later skill builds on.",
+  },
+  {
+    title: "Color & painting",
+    body: "Color mixing, watercolor, gouache, and basic acrylic. How to make color choices that hold a piece together.",
+  },
+  {
+    title: "Cartooning & character",
+    body: "Building characters with consistent proportions, simple expressions, and a clear silhouette. The fun part — with structure underneath.",
+  },
+  {
+    title: "Illustration & storytelling",
+    body: "Short visual stories, comics panels, illustrated covers. Kids learn that an illustration carries an idea, not just a picture.",
+  },
+] as const;
+
+const logistics = [
+  { label: "Ages", value: "7–10 · grades 3–5" },
+  { label: "Class size", value: "Small group · max ~8 students" },
+  { label: "Session length", value: "90 minutes · weekly" },
+  { label: "Materials", value: "All supplies included" },
+  { label: "Format", value: "In-studio · 47 Bergen St, 2nd Floor" },
+  { label: "Trial class", value: "Available — try a session before committing" },
+] as const;
+
+export default function Kids() {
+  return (
+    <>
+      <AnnouncementBar />
+      <NavBar />
+
+      <main className="flex-1">
+        {/* ─── Hero ─────────────────────────────────────────── */}
+        <section className="grain relative isolate">
+          <PaintStroke
+            variant="blob"
+            seed={5}
+            className="-top-28 -right-40 w-[42rem] h-[42rem] opacity-40"
+          />
+          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
+            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
+              Kids · grades 3–5 · ages 7–10
+            </p>
+            <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
+              Cartooning &amp; Illustration
+            
+              
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
+            This class is designed for students ages 7-10, offering a balance of creativity and foundational skill-building. From imaginative exploration to structured learning, students gain confidence in their artistic abilities while learning how to create with intention.
+            </p>
+            <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
+            Our goal is to help young artists move beyond simply “making” art, and instead understand how to express ideas meaningfully through their work.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <SquareBookingLink service="cartooningIllustration" variant="primary" size="lg">
+                Enroll in Cartooning &amp; Illustration
+              </SquareBookingLink>
+              <SquareBookingLink service="consultation" variant="secondary" size="lg">
+                Book a consultation first
+              </SquareBookingLink>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── What a session looks like ────────────────────── */}
+        <section className="grain relative isolate">
+          <PaintStroke
+            variant="blob"
+            seed={1}
+            className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
+          />
+         
+        </section>
+
+        {/* ─── What they learn ──────────────────────────────── */}
+        <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
+          <div className="flex items-baseline gap-4 mb-12">
+          <h2 className="font-display text-5xl text-ink">
+              What we cover
+            </h2>
+            <span className="h-px flex-1 bg-paper-edge/60" />
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {skills.map((s, i) => (
+              <article
+                key={i}
+                className="p-7 bg-paper-deep/40 border border-paper-edge/60 rounded-lg"
+              >
+                <p className="text-[11px] uppercase tracking-[0.18em] text-ink-soft">
+                  0{i + 1}
+                </p>
+                <h3 className="mt-2 font-display text-2xl text-ink leading-tight">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">
+                  {s.body}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* ─── Logistics ────────────────────────────────────── */}
+        <section className="grain relative isolate ">
+          <PaintStroke
+            variant="blob"
+            seed={3}
+            className="-bottom-32 -right-32 w-[36rem] h-[36rem] opacity-25"
+          />
+          <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
+            <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-ink-faint">
+                  The details
+                </p>
+                <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
+                  What to expect
+                </h2>
+                <p className="mt-6 text-lg text-ink-soft leading-relaxed">
+                  Small group, weekly sessions, everything included. Come
+                  try a class before committing to a term.
+                </p>
+              </div>
+              <dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2 self-start">
+                {logistics.map((l) => (
+                  <div
+                    key={l.label}
+                    className="border-t border-paper-edge/40 pt-4"
+                  >
+                    <dt className="text-[11px] uppercase tracking-[0.18em] text-ink-faint">
+                      {l.label}
+                    </dt>
+                    <dd className="mt-1 font-display text-xl text-ink leading-snug">
+                      {l.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Next step / older students ───────────────────── */}
+        <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
+         <h2 className="text-5xl mb-4">Related Classes</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Link
+              href="/classes/teen"
+              className="group relative isolate p-8 bg-paper-deep/40 border border-paper-edge/60 rounded-lg deckle"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-faint">
+                Up next · grades 5–7
+              </p>
+              <h3 className="mt-3 font-display text-3xl text-ink leading-tight group-hover:text-crimson transition">
+                Intro to Drawing &amp; Painting
+              </h3>
+              <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">
+              This 2.5-hour class provides a balanced approach to both technical skill development and creative growth. It is ideal for students who want to pursue art as a serious hobby or prepare for art-focused high school programs.
+              The curriculum is structured to support students from diverse backgrounds, starting with strong foundational training and gradually building toward more advanced work.
+
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1 text-sm text-crimson group-hover:gap-2 transition-all">
+                See teen class <span aria-hidden>→</span>
+              </span>
+            </Link>
+
+            <Link
+              href="/classes/hs-prep"
+              className="group relative isolate p-8 bg-paper-deep/40 border border-paper-edge/60 rounded-lg deckle"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-faint">
+                Later · grades 7–9
+              </p>
+              <h3 className="mt-3 font-display text-3xl text-ink leading-tight group-hover:text-crimson transition">
+                Art High School Portfolio
+              </h3>
+              <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">
+                The same students often continue with us into portfolio
+                prep for LaGuardia, Frank Sinatra, and other art high
+                schools.
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1 text-sm text-crimson group-hover:gap-2 transition-all">
+                See portfolio prep <span aria-hidden>→</span>
+              </span>
+            </Link>
+          </div>
+        </section>
+
+        {/* ─── CTA ──────────────────────────────────────────── */}
+        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-32 pt-8">
+          <div className="relative isolate  py-16 text-center">
+            <PaintStroke
+              variant="blob"
+              seed={4}
+              className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[44rem] h-[44rem] opacity-25"
+            />
+            <div className="max-w-3xl mx-auto">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
+                Try before you commit
+              </p>
+              <h2 className="mt-4 font-display text-5xl md:text-6xl leading-[1.05] text-ink">
+                Book a trial class
+              </h2>
+              <p className="mt-6 text-lg text-ink-soft leading-relaxed">
+                One session, no commitment. See if it's the right fit
+                before signing up for a term.
+              </p>
+              <div className="mt-10 flex flex-wrap justify-center gap-3">
+                <SquareBookingLink service="trial" variant="primary" size="lg">
+                  Book a Trial Class
+                </SquareBookingLink>
+                <Button href="/faq" size="lg" variant="secondary">
+                  Read the FAQ
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
+}
