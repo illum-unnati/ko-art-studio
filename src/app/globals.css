@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 /* ---------- Design tokens ---------- */
 @theme {
   /* Paper / ink — clean white with soft neutral supports */
@@ -34,9 +35,9 @@
   /* Headings and body both run on Archivo now — sans throughout.
      --font-display kept as a token so existing `.font-display` /
      heading rules keep working; it just points at the sans stack. */
-  --font-display: var(--font-archivo);
-  --font-sans: var(--font-archivo);
-  --font-script: "Homemade Apple", "Beth Ellen", cursive;
+  --font-display: "Archivo", serif;
+  --font-sans: "Archivo", san-serif;
+  --font-script: "Beth Ellen", cursive;
 
   /* Radii */
   --radius-sm: 4px;
@@ -143,85 +144,6 @@ body {
     border: 1px solid var(--color-paper-edge);
     border-radius: inherit;
     filter: url(#kasr-deckle);
-  }
-}
-
-/* ─── Student works ticker ──────────────────────────────────
-   Pure-CSS marquee. The track contains the items twice; we translate
-   from 0 to -50% of the track's total width so the loop is seamless.
-   See StudentWorksTicker.tsx for the JSX. */
-.student-ticker {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  /* Fade edges so cards don't pop in/out abruptly. */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 6%,
-    black 94%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 6%,
-    black 94%,
-    transparent 100%
-  );
-}
-
-.student-ticker__track {
-  display: flex;
-  gap: 1.25rem;
-  width: max-content;
-  list-style: none;
-  padding: 0.75rem 0; /* leave room for the deckle border + shadow */
-  margin: 0;
-  animation: student-ticker-scroll 60s linear infinite;
-  will-change: transform;
-}
-
-.student-ticker:hover .student-ticker__track,
-.student-ticker:focus-within .student-ticker__track {
-  animation-play-state: paused;
-}
-
-.student-ticker__item {
-  flex: 0 0 auto;
-  width: 11rem;
-}
-
-@media (min-width: 640px) {
-  .student-ticker__track {
-    gap: 1.5rem;
-  }
-  .student-ticker__item {
-    width: 14rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .student-ticker__item {
-    width: 17rem;
-  }
-}
-
-@keyframes student-ticker-scroll {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  /* Soften rather than disable. A slow drift is ambient enough not to
-     trigger vestibular reactions, and preserves the design intent.
-     If a user has reduce-motion set, slow the loop to ~3 minutes. */
-  .student-ticker__track {
-    animation-duration: 180s;
   }
 }
 

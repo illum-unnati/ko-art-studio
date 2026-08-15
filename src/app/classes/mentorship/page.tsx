@@ -30,7 +30,7 @@ const covers = [
   {
     label: "Technical",
     title: "Advanced craft",
-    body: "Drawing, painting, color, composition — at the level you actually need it. Mr. Ko works backward from your goals to identify which skills need the most attention.",
+    body: "Drawing, painting, color, composition at the level you actually need it. Mr. Ko works backward from your goals to identify which skills need the most attention.",
   },
   {
     label: "Conceptual",
@@ -45,7 +45,7 @@ const covers = [
   {
     label: "Personal",
     title: "Your body of work",
-    body: "Mentorship is shaped around what you're actually making. Bring works-in-progress, finished pieces, sketchbooks — whatever the conversation needs.",
+    body: "Mentorship is shaped around what you're actually making. Bring works-in-progress, finished pieces, sketchbooks, whatever the conversation needs.",
   },
 ] as const;
 
@@ -75,10 +75,10 @@ const process = [
 const logistics = [
   { label: "Audience", value: "Adults · career-changers & serious practitioners" },
   { label: "Format", value: "One-on-one · private sessions" },
-  { label: "Cadence", value: "Custom — typically weekly or bi-weekly" },
+  { label: "Cadence", value: "Custom · typically weekly or bi-weekly" },
   { label: "Duration", value: "Ongoing · minimum 3-month commitment" },
-  { label: "Tuition", value: "By inquiry — varies with cadence" },
-  { label: "Admission", value: "By consultation — limited slots per year" },
+  { label: "Tuition", value: "By inquiry · aries with cadence" },
+  { label: "Admission", value: "By consultation · limited slots per year" },
 ] as const;
 
 export default function Mentorship() {
@@ -132,11 +132,9 @@ Whether you’re pursuing a full career change or looking to take your artistic 
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
           <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
             <div>
-              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-soft">
-                About Mr. Ko
-              </p>
+              
               <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
-                A working artist who teaches.
+                About Mr. Ko
               </h2>
             </div>
             <div className="space-y-6 text-lg text-ink leading-relaxed">
@@ -144,13 +142,13 @@ Whether you’re pursuing a full career change or looking to take your artistic 
                 Mr. Ko began his career in Seoul in 1985 and has continued
                 his practice in Brooklyn. His work centers on
                 environmental themes and has been shown in 25+ group
-                exhibitions and 15+ solo shows — including award-winning
+                exhibitions and 15+ solo shows, including award-winning
                 work in national competitions.
               </p>
               <p>
                 He has taught art for 20+ years, building a structured
                 curriculum used by hundreds of students. Mentorship is the
-                most concentrated version of that teaching — built one
+                most concentrated version of that teaching, built one
                 student at a time.
               </p>
               <Link
@@ -171,19 +169,16 @@ Whether you’re pursuing a full career change or looking to take your artistic 
             className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-            <div className="flex items-baseline gap-4 mb-12">
-              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-soft">
+            <div className="flex items-baseline gap-4 mb-4">
+             
+              <h2 className="font-display text-5xl text-ink">
                 Who it's for
-              </p>
-              <span className="h-px flex-1 bg-paper-edge/60" />
-              <h2 className="font-display text-3xl text-ink">
-                Three kinds of student
               </h2>
             </div>
 
             <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-12">
-              Mentorship isn't a class — it's a working relationship
-              between an established artist and a student making real
+              Mentorship is a working relationship
+              for artists making real
               commitments to their practice. We take a small number of
               students each year.
             </p>
@@ -211,12 +206,9 @@ Whether you’re pursuing a full career change or looking to take your artistic 
 
         {/* ─── What it covers ───────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-soft">
-              What it covers
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
+          <div className="flex items-baseline gap-4 mb-4">
+      
+            <h2 className="font-display text-5xl text-ink">
               Four dimensions
             </h2>
           </div>
@@ -339,7 +331,7 @@ Whether you’re pursuing a full career change or looking to take your artistic 
                 <SquareBookingLink service="mentorshipTrial" variant="primary" size="lg">
                   Book a Trial with Mr. Ko
                 </SquareBookingLink>
-                <Button href="/classes/adult" size="lg" variant="secondary">
+                <Button href="/classes" size="lg" variant="secondary">
                   Looking for group classes?
                 </Button>
               </div>

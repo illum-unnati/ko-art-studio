@@ -191,34 +191,22 @@ export default function ClassesIndex() {
             seed={1}
             className="-top-28 -right-44 w-[42rem] h-[42rem] opacity-40"
           />
-          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-16">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-shadow-ink-soft">
-              Classes · all programs
-            </p>
+          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-8">
+           
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-4xl text-ink">
-              For every{" "}
+              Classes for {" "}
               <span className="text-crimson relative inline-block">
-                level.
+                every 
                 <PaintStroke
                   variant="underline"
                   color="crimson"
                   className="absolute -bottom-1 left-0 w-full h-3"
-                />
+                /> 
               </span>
+              {" "}level
             </h1>
-            <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
-              Programs for kids, teens, college-bound students, and
-              adults; plus a one-on-one mentorship and a weekly adult
-              drop-in.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="consultation" variant="primary" size="lg">
-                Book a Free Consultation
-              </SquareBookingLink>
-              <SquareBookingLink service="trial" variant="secondary" size="lg">
-                Book a Trial Class
-              </SquareBookingLink>
-            </div>
+        
+           
           </div>
         </section>
 

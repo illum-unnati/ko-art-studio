@@ -91,7 +91,7 @@ export default function Home() {
             
             <h1 className="mt-2 font-display  text-4xl md:text-5xl leading-[1.30] tracking-tight max-w-2xl text-ink">
               Art classes{" "}
-              <span className="text-crimson relative inline">
+              <span className="text-crimson  relative inline ">
                 for all ages
                 <PaintStroke
                   variant="underline"

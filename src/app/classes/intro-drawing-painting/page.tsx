@@ -36,12 +36,12 @@ const gallery = [
   { img: teen1, span: "md:row-span-2" },
   { img: teen7, span: "md:row-span-2" },
 
-  { img: teen13, span: "md:row-span-2 md:col-span-2" },
-  { img: teen9, span: "md:row-span-2" },
+  { img: teen13, span: "md:row-span-3 md:col-span-2" },
+  { img: teen11, span: "md:row-span-3" },{ img: teen9, span: "md:row-span-3" },
   
 
  
-  { img: teen11, span: "md:row-span-2" },
+  
 
   { img: teen14, span: "md:row-span-2" },
   { img: teen12, span: "md:row-span-2" },
@@ -115,7 +115,7 @@ export default function Teen() {
             seed={1}
             className="-top-28 -right-44 w-[42rem] h-[42rem] opacity-40"
           />
-          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
+          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-8">
             
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
               Introduction to Drawing &amp; Painting
@@ -139,12 +139,29 @@ export default function Teen() {
 
         {/* ─── Focus areas ──────────────────────────────────── */}
         <section className="grain relative isolate overflow-hidden">
-          <PaintStroke
-            variant="blob"
-            seed={4}
-            className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
-          />
-          <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
+         
+          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-8 pb-24">
+              {/* ─── Bento gallery ──────────────────────────────── */}
+              <div className="pb-24 grid grid-cols-2 md:grid-cols-4 md:grid-flow-row-dense auto-rows-[44vw] sm:auto-rows-[30vw] md:auto-rows-[150px] gap-3 md:gap-4">
+              {gallery.map((g, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                    g.span
+                  )}
+                >
+                  <Image
+                    src={g.img}
+                    alt="Student work and studio moments from the Intro to Drawing & Painting class at Ko Art Studio"
+                    fill
+                    placeholder="blur"
+                    sizes="(min-width: 768px) 45vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
             <div className="flex items-baseline gap-4 mb-4">
               <h2 className="font-display text-5xl text-ink">
                 What we cover
@@ -170,27 +187,7 @@ export default function Teen() {
               ))}
             </div>
 
-            {/* ─── Bento gallery ──────────────────────────────── */}
-            <div className="mt-24 grid grid-cols-2 md:grid-cols-4 md:grid-flow-row-dense auto-rows-[44vw] sm:auto-rows-[30vw] md:auto-rows-[150px] gap-3 md:gap-4">
-              {gallery.map((g, i) => (
-                <div
-                  key={i}
-                  className={cn(
-                    "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
-                    g.span
-                  )}
-                >
-                  <Image
-                    src={g.img}
-                    alt="Student work and studio moments from the Intro to Drawing & Painting class at Ko Art Studio"
-                    fill
-                    placeholder="blur"
-                    sizes="(min-width: 768px) 45vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+          
           </div>
         </section>
 

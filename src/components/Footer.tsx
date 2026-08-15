@@ -31,9 +31,9 @@ export function Footer() {
             <li><Link href="/classes/teen" className="hover:text-crimson">Intro to Drawing & Painting</Link></li>
             <li><Link href="/classes/hs-prep" className="hover:text-crimson">HS Portfolio Prep</Link></li>
             <li><Link href="/classes/college" className="hover:text-crimson">College Portfolio</Link></li>
-            <li><Link href="/classes/adult" className="hover:text-crimson">Adult Classes</Link></li>
+            <li><Link href="/classes/#adult" className="hover:text-crimson">Adult Classes</Link></li>
             <li><Link href="/classes/mentorship" className="hover:text-crimson">Mentorship</Link></li>
-            <li><Link href="/open-studio" className="hover:text-crimson">Open Studio Club</Link></li>
+            <li><Link href="/workshops" className="hover:text-crimson">Workshops</Link></li>
           </ul>
         </div>
 

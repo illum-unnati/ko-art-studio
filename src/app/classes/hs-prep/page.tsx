@@ -181,12 +181,28 @@ export default function HsPrep() {
 
         {/* ─── Who it's for ─────────────────────────────────── */}
         <section className="grain relative isolate">
-          <PaintStroke
-            variant="blob"
-            seed={4}
-            className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
-          />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
+            {/* ─── Bento gallery ──────────────────────────────── */}
+            <div className="mb-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
+            {gallery.map((g, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                  g.span
+                )}
+              >
+                <Image
+                  src={g.img}
+                  alt="Students and work from the 2D animation class at Ko Art Studio"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
                 
@@ -215,7 +231,7 @@ export default function HsPrep() {
 
         {/* ─── What's included ──────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-4">
+          <div className="flex items-baseline gap-4 mb-6">
             
             <h2 className="font-display text-5xl text-ink">
               What's included
@@ -240,27 +256,7 @@ export default function HsPrep() {
               </article>
             ))}
           </div>
-              {/* ─── Bento gallery ──────────────────────────────── */}
-              <div className="mt-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
-            {gallery.map((g, i) => (
-              <div
-                key={i}
-                className={cn(
-                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
-                  g.span
-                )}
-              >
-                <Image
-                  src={g.img}
-                  alt="Students and work from the 2D animation class at Ko Art Studio"
-                  fill
-                  placeholder="blur"
-                  sizes="(min-width: 768px) 45vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
+              
           
         </section>
 

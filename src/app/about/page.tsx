@@ -1,11 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { PaintStroke } from "@/components/PaintStroke";
+
+import illo1 from "./assets/studiointerior1.webp";
+import illo2 from "./assets/studiointerior2.webp";
+import illo3 from "./assets/studiointerior3.webp";
+import illo4 from "./assets/studiointerior4.webp";
+import illo5 from "./assets/studiointerior5.webp";
+import illo6 from "./assets/studiointerior6.webp";
+import illo7 from "./assets/studiointerior7.webp";
 
 export const metadata = {
   title: "About",

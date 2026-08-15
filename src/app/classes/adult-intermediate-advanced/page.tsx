@@ -9,12 +9,12 @@ import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { PaintStroke } from "@/components/PaintStroke";
 
 
-import illo1 from "./assets/adultbeginner1.webp";
-import illo2 from "./assets/adultbeginner2.webp";
-import illo3 from "./assets/adultbeginner3.webp";
-import illo4 from "./assets/adultbeginner4.webp";
-import illo5 from "./assets/adultbeginner5.webp";
-import illo6 from "./assets/adultbeginner6.webp";
+import illo1 from "./assets/intadv1.webp";
+import illo2 from "./assets/intadv2.webp";
+import illo3 from "./assets/intadv3.webp";
+import illo4 from "./assets/intadv4.webp";
+import illo5 from "./assets/intadv5.webp";
+import illo6 from "./assets/intadv6.webp";
 
 /* Bento layout — on md+ this tiles a 4-col grid exactly:
    [ 1  1  2  2 ]
@@ -23,12 +23,12 @@ import illo6 from "./assets/adultbeginner6.webp";
    On mobile it collapses to a simple 2-col grid.
    */
    const gallery = [
-    
+
     
     { img: illo3, span: "md:row-span-2 md:col-span-2" }, 
     { img: illo6, span: "md:row-span-2 " },
-    { img: illo5, span: "md:row-span-4" },
-    { img: illo2, span: "md:row-span-2 md:col-span-2" },{ img: illo1, span: " md:row-span-2" },
+    { img: illo4, span: "md:row-span-2" },
+    { img: illo2, span: "md:row-span-2 md:col-span-2" },{ img: illo1, span: " md:col-span-2 md:row-span-2" },
    
   ] as const;
 

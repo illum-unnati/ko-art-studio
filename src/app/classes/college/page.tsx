@@ -191,12 +191,29 @@ export default function College() {
 
         {/* ─── Two tracks ───────────────────────────────────── */}
         <section className="grain relative isolate">
-          <PaintStroke
-            variant="blob"
-            seed={4}
-            className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
-          />
-          <div className="mt-24 mx-auto max-w-7xl px-4 md:px-6 pb-24">
+          
+          <div className="mt-4 mx-auto max-w-7xl px-4 md:px-6 pb-24">
+               {/* ─── Bento gallery ──────────────────────────────── */}
+               <div className="mb-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
+            {gallery.map((g, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                  g.span
+                )}
+              >
+                <Image
+                  src={g.img}
+                  alt="Students and work from the 2D animation class at Ko Art Studio"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
             <div className="flex items-baseline gap-4 mb-4">
               
               <h2 className="font-display text-5xl text-ink">
@@ -296,27 +313,7 @@ export default function College() {
             </Link>
           </div>
 
-                   {/* ─── Bento gallery ──────────────────────────────── */}
-                   <div className="mt-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
-            {gallery.map((g, i) => (
-              <div
-                key={i}
-                className={cn(
-                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
-                  g.span
-                )}
-              >
-                <Image
-                  src={g.img}
-                  alt="Students and work from the 2D animation class at Ko Art Studio"
-                  fill
-                  placeholder="blur"
-                  sizes="(min-width: 768px) 45vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
+                
         </section>
 
         {/* ─── What's included ──────────────────────────────── */}
@@ -426,23 +423,7 @@ export default function College() {
           </ol>
         </section>
 
-        {/* ─── Editorial pull-quote ─────────────────────────── */}
-        <section className="grain relative isolate">
-          <PaintStroke
-            variant="blob"
-            seed={2}
-            className="-top-24 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] opacity-30"
-          />
-          <div className="mx-auto max-w-4xl px-4 md:px-6 py-28 text-center">
-            <p className="font-display text-3xl md:text-5xl leading-[1.18] text-ink">
-              A college portfolio isn't a list of skills. It's a body of work
-              that says something only this student could have made.
-            </p>
-            <p className="mt-8 font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-              ko art studio · teaching philosophy
-            </p>
-          </div>
-        </section>
+   
 
         {/* ─── CTA ──────────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-32 pt-8">

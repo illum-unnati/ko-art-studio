@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Homemade_Apple } from "next/font/google";
+import { Beth_Ellen } from "next/font/google";
 import "./globals.css";
 import { SvgFilters } from "@/components/SvgFilters";
 
@@ -42,7 +42,7 @@ const archivo = localFont({
   ],
 });
 
-const homemadeApple = Homemade_Apple({
+const bethEllen = Beth_Ellen({
   variable: "--font-script",
   subsets: ["latin"],
   weight: ["400"],
@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${crimsonPro.variable} ${archivo.variable} ${homemadeApple.variable} h-full antialiased`}
+      className={`${crimsonPro.variable} ${archivo.variable} ${bethEllen.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SvgFilters />
