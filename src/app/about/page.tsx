@@ -16,6 +16,16 @@ import illo5 from "./assets/studiointerior5.webp";
 import illo6 from "./assets/studiointerior6.webp";
 import illo7 from "./assets/studiointerior7.webp";
 
+const gallery = [
+      { img: illo1, span: " md:col-span-2 md:row-span-2" },
+  { img: illo4, span: "md:row-span-2" },
+  { img: illo7, span: "md:row-span-2" },
+  { img: illo3, span: "md:row-span-2 md:col-span-2" }, 
+  { img: illo2, span: "md:row-span-2 md:col-span-2" },
+
+ 
+] as const;
+
 export const metadata = {
   title: "About",
   description:
@@ -28,7 +38,7 @@ const milestones = [
   { year: "2023", text: "Mr. Ko and Geon co-found ko art studio at 47 Bergen St, Cobble Hill, Brooklyn." },
   { year: "2024", text: "First high school portfolio cohort graduates. Most accepted to LaGuardia and Frank Sinatra." },
   { year: "2025", text: "14 of 16 students accepted to LaGuardia. College placements include Pratt, Cornell, UAL London, Goldsmiths." },
-  { year: "2026", text: "Open Studio Club launches for adult drop-in sessions every week." },
+
 ] as const;
 
 const teachers = [
@@ -51,13 +61,11 @@ export default function About() {
             className="-top-28 -right-44 w-[42rem] h-[42rem] opacity-35"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-24">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              About · since 2023
-            </p>
+           
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-4xl text-ink">
-              From Seoul to{" "}
+              About{" "}
               <span className="text-crimson relative inline-block">
-                Brooklyn.
+                ko art studio
                 <PaintStroke
                   variant="underline"
                   color="crimson"
@@ -67,16 +75,39 @@ export default function About() {
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
               ko art studio is a family-owned art studio in Cobble Hill,
-              Brooklyn. Co-founded in 2023 by Mr. Ko and his son Geon, we
-              offer inclusive art education for students of every age — from
+              Brooklyn, co-founded in 2023 by Mr. Ko and his son Geon. We
+              offer inclusive art education for students of every age, from
               first-time kids to working adults to artists preparing for the
               country's most competitive art schools.
             </p>
           </div>
         </section>
-
+<section className="mx-auto max-w-7xl px-4 md:px-6 pb-28">
+   {/* ─── Bento gallery ──────────────────────────────── */}
+   <div className="pb-8 grid grid-cols-2 md:grid-cols-4 md:grid-flow-row-dense auto-rows-[44vw] sm:auto-rows-[30vw] md:auto-rows-[150px] gap-3 md:gap-4">
+              {gallery.map((g, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                    g.span
+                  )}
+                >
+                  <Image
+                    src={g.img}
+                    alt="Student work and studio moments from the Intro to Drawing & Painting class at Ko Art Studio"
+                    fill
+                    placeholder="blur"
+                    sizes="(min-width: 768px) 45vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+</section>
         {/* ─── Our Story ────────────────────────────────────── */}
         <section className="mx-auto max-w-3xl px-4 md:px-6 pb-28">
+             
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint mb-6">
             Our story
           </p>
@@ -85,7 +116,7 @@ export default function About() {
               The studio began as an idea between a father and his son. Mr. Ko
               had spent four decades as a working artist in Korea, exhibiting
               widely and increasingly focused on environmental work. For the
-              last 20+ years he had also been teaching — and over time he
+              last 20+ years he had also been teaching, and over time he
               developed a curriculum that took students of any background and
               gave them the tools to think and make like real artists.
             </p>
@@ -109,12 +140,8 @@ export default function About() {
 
         {/* ─── The founders ─────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-28">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-              The founders
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
+          <div className="flex items-baseline gap-4 mb-4">
+            <h2 className="font-display text-5xl text-ink">
               Meet Mr. Ko &amp; Geon
             </h2>
           </div>
@@ -156,7 +183,7 @@ export default function About() {
                 <p>
                   He began his career in Korea and continues his practice in
                   Brooklyn. He believes art has the power to create positive
-                  change — and that the way to give students that power is to
+                  change and that the way to give students that power is to
                   give them a real foundation. Over the past 15+ years he has
                   built a structured curriculum used by hundreds of students
                   from a wide range of backgrounds.
@@ -201,7 +228,7 @@ export default function About() {
                 <p>
                   Day-to-day, Geon leads instruction and acts as guidance
                   counselor for portfolio students. His larger ambition is to
-                  make the studio feel like more than a class — a creative
+                  make the studio not just a classroom, but a creative
                   space across generations that students of any age can call a
                   second home.
                 </p>
@@ -213,19 +240,16 @@ export default function About() {
         {/* ─── Teachers ─────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-28">
           <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-              Studio
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display  text-3xl text-ink">
+           
+            <h2 className="font-display  text-5xl text-ink">
               Our teachers
             </h2>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 max-w-4xl">
+          <div className="grid gap-2 md:grid-cols-2 max-w-7xl items-start">
             {teachers.map((t) => (
-              <div key={t.name} className="flex gap-5">
-                <div className="relative aspect-square w-28 bg-paper-edge/30 rounded-md overflow-hidden flex-shrink-0">
+              <div key={t.name} className="flex-row gap-5">
+                <div className="relative aspect-square w-100 bg-paper-edge/30 rounded-md overflow-hidden">
                   <Image
                     src={t.src}
                     alt={`Portrait of ${t.name}`}
@@ -235,15 +259,13 @@ export default function About() {
                   />
                 </div>
                 <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-faint">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-faint mt-2">
                     {t.role}
                   </p>
-                  <h3 className="mt-1 font-display  text-2xl text-ink leading-tight">
+                  <h3 className="mt-1 font-display  text-4xl text-ink leading-tight">
                     {t.name}
                   </h3>
-                  <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-                    Bio coming soon.
-                  </p>
+                  
                 </div>
               </div>
             ))}
@@ -260,11 +282,9 @@ export default function About() {
           <div className="mx-auto max-w-7xl px-4 md:px-6 py-28">
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                  Teaching philosophy
-                </p>
+                
                 <h2 className="mt-4 font-display  text-4xl md:text-5xl leading-[1.05] text-ink">
-                  Foundation, then voice.
+                  Our teaching philosophy
                 </h2>
               </div>
               <div className="space-y-6 text-lg text-ink leading-relaxed">
@@ -288,13 +308,10 @@ export default function About() {
 
         {/* ─── Timeline ─────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 py-28">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
+          <div className="flex items-baseline gap-4 mb-4">
+           
+            <h2 className="font-display text-5xl text-ink">
               Timeline
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              1985 → today
             </h2>
           </div>
           <ol className="max-w-3xl mx-auto">

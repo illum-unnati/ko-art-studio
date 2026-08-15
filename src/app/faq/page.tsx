@@ -297,7 +297,7 @@ export default function FAQ() {
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-16">
       
-            <h1 className="mt-6 font-display italic text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-4xl text-ink">
+            <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-4xl text-ink">
              Frequently Asked Questions
             </h1>
             
@@ -307,12 +307,13 @@ export default function FAQ() {
         {/* ─── Table of contents ───────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-16">
           <nav aria-label="FAQ sections">
+            <p className = "mb-4">FILTER BY:</p>
             <ul className="flex flex-wrap gap-x-4 gap-y-6">
               {sections.map((s) => (
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="px-4 py-2 border border-paper-edge/70 rounded-full text-sm text-ink bg-paper hover:bg-paper-deep/40 transition"
+                    className="px-4 py-2 border border-wash-deep rounded-full text-sm text-ink bg-wash/10 hover:bg-wash/40 transition"
                   >
                     {s.title}
                   </a>
@@ -330,17 +331,15 @@ export default function FAQ() {
             className="mx-auto max-w-7xl px-4 md:px-6 pb-24 scroll-mt-24"
           >
             <div className="flex items-baseline gap-4 mb-10">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                0{idx + 1}
-              </p>
-              <span className="h-px flex-1 bg-paper-edge/60" />
-              <h2 className="font-display italic text-3xl md:text-4xl text-ink">
+            
+             
+              <h2 className="font-script text-3xl md:text-4xl text-ink-soft">
                 {section.title}
-              </h2>
+              </h2> 
             </div>
 
             {section.intro && (
-              <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-10">
+              <p className="max-w-2xl text-[17px] text-ink-soft  leading-relaxed mb-10">
                 {section.intro}
               </p>
             )}
@@ -348,7 +347,7 @@ export default function FAQ() {
             <div className="grid gap-x-12 gap-y-8 md:grid-cols-2 max-w-6xl">
               {section.items.map((item, i) => (
                 <article key={i} className="border-t border-paper-edge/40 pt-6">
-                  <h3 className="font-display italic text-2xl text-ink leading-snug">
+                  <h3 className="font-display text-2xl text-ink leading-snug">
                     {item.q}
                   </h3>
                   <div className="mt-3 text-[15px] text-ink leading-relaxed">
