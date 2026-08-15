@@ -15,9 +15,9 @@ const openStudioPhotos = [
 ];
 
 export const metadata = {
-  title: "Open Studio Club — Adult Drop-In",
+  title: "Workshops",
   description:
-    "Weekly drop-in studio sessions for adults in Cobble Hill, Brooklyn. $32 a session. Bring your own work or use studio supplies. No screens, just canvas. Open every week.",
+    "One-time workshops and events at ko art studio. $32 a session. Bring your own work or use studio supplies. No screens, just canvas. Open every week.",
 };
 
 const youGet = [
@@ -54,19 +54,12 @@ const whoComes = [
   },
 ] as const;
 
-const logistics = [
-  { label: "Pricing", value: "$32 per session" },
-  { label: "When", value: "Weekly · check calendar for next session" },
-  { label: "Where", value: "47 Bergen St, 2nd Floor · Cobble Hill" },
-  { label: "Duration", value: "~2 hours per session" },
-  { label: "Materials", value: "Basic supplies provided · BYO welcome" },
-  { label: "Booking", value: "Reserve a spot — limited seats" },
-] as const;
+
 
 export default function OpenStudio() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">
@@ -80,20 +73,11 @@ export default function OpenStudio() {
           <div className="relative z-10 pointer-events-none mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20 md:min-h-[42rem]">
             
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-2xl text-ink">
-              Open Studio{" "}
-              <span className="text-crimson relative inline-block">
-                Club
-                <PaintStroke
-                  variant="underline"
-                  color="crimson"
-                  className="absolute -bottom-1 left-0 w-full h-3"
-                />
-              </span>
+              Workshops
               
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-soft leading-relaxed">
-              Weekly drop-in sessions for adults in Cobble Hill. Bring your own work or use what's on the table.
-            </p>
+We offer a variety of one-time workshops and events, for a low-commitment way to get creative!            </p>
             <div className="pointer-events-auto mt-10 flex flex-wrap gap-3">
               <SquareBookingLink service="openStudio" variant="primary" size="lg">
                 Reserve Your Spot
@@ -107,7 +91,7 @@ export default function OpenStudio() {
           </div>
         </section>
 
-        {/* ─── What it is ───────────────────────────────────── */}
+        {/* ─── What it is ───────────────────────────────────── 
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
           <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
             <div>
@@ -126,9 +110,9 @@ export default function OpenStudio() {
              
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* ─── What you get ─────────────────────────────────── */}
+        {/* ─── What you get ─────────────────────────────────── 
         <section className="grain relative isolate">
           <PaintStroke
             variant="blob"
@@ -163,36 +147,9 @@ export default function OpenStudio() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* ─── Who shows up ─────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-          <div className="flex items-baseline gap-4 mb-2">
-  
-            <h2 className="font-script  text-3xl text-ink">
-              who shows up
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {whoComes.map((w, i) => (
-              <article
-                key={i}
-                className="p-7 bg-wash-soft bg-paper-deep/40 border border-paper-edge/60 rounded-lg"
-              >
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
-                  0{i + 1}
-                </p>
-                <h3 className="mt-2 font-display  text-2xl text-ink leading-tight">
-                  {w.title}
-                </h3>
-                <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">
-                  {w.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </section>
+       
 
         {/* ─── Pull quote ───────────────────────────────────── */}
         {/* <section className="grain relative isolate">
@@ -209,41 +166,7 @@ export default function OpenStudio() {
           </div>
         </section> */}
 
-        {/* ─── Logistics ────────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-          <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
-            <div>
-              
-              <h2 className="mt-4 font-display  text-4xl md:text-5xl leading-[1.05] text-ink">
-                Reserve a seat today
-              </h2>
-              <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-                Reserve a seat before the session — sessions can fill up.
-                Walk-ins welcome only if space allows.
-              </p>
-              <div className="pointer-events-auto mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="openStudio" variant="primary" size="lg">
-                Reserve Your Spot
-              </SquareBookingLink>
-            </div>
-            </div>
-            <dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2 self-start">
-              {logistics.map((l) => (
-                <div
-                  key={l.label}
-                  className="border-t border-paper-edge/40 pt-4"
-                >
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
-                    {l.label}
-                  </dt>
-                  <dd className="mt-1 font-display text-xl text-ink leading-snug">
-                    {l.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
+        
 
         {/* ─── CTA ──────────────────────────────────────────── */}
         

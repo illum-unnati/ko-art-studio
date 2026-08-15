@@ -30,7 +30,7 @@ const teachers = [
 export default function About() {
   return (
     <>
-      <AnnouncementBar />
+  
       <NavBar />
 
       <main className="flex-1">

@@ -284,7 +284,7 @@ const sections: Section[] = [
 export default function FAQ() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">

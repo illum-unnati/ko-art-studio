@@ -19,13 +19,13 @@ export function StatBadge({ value, label, accent = "crimson", className }: Props
     <div className={cn("flex flex-col items-start gap-1", className)}>
       <span
         className={cn(
-          "font-display text-5xl md:text-8xl leading-none tracking-tight",
+          "font-script text-5xl md:text-8xl leading-none tracking-tight font-light",
           accentMap[accent]
         )}
       >
         {value}
       </span>
-      <span className="font-sans text-sm text-ink-soft uppercase tracking-[0.14em]">
+      <span className="font-sans text-sm text-ink-soft  tracking-[0.14em]">
         {label}
       </span>
     </div>

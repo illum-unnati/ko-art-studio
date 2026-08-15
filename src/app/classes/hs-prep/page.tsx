@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
@@ -6,6 +7,23 @@ import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { StatBadge } from "@/components/StatBadge";
 import { PaintStroke } from "@/components/PaintStroke";
+import { cn } from "@/lib/cn";
+import illo1 from "./assets/hsprep1.webp";
+import illo2 from "./assets/hsprep2.webp";
+import illo3 from "./assets/hsprep3.webp";
+import illo4 from "./assets/hsprep4.webp";
+import illo5 from "./assets/hsprep5.webp";
+
+/* Bento layout — on md+ this tiles a 4-col grid exactly:
+  */
+   const gallery = [
+    { img: illo1, span: "md:col-span-2 md:row-span-2" },
+    { img: illo2, span: "md:col-span-2 md:row-span-2" },
+    { img: illo3, span: "md:row-span-2" },
+    { img: illo4, span: "md:col-span-2 md:row-span-2" },
+    { img: illo5, span: "md:row-span-2" },
+  ] as const;
+  
 
 export const metadata = {
   title: "Art High School Portfolio Prep",
@@ -44,17 +62,13 @@ const schools = [
     type: "Independent",
     note: "Brooklyn Heights — known for arts depth.",
   },
-  {
-    name: "Bay Ridge Prep",
-    type: "Independent",
-    note: "Small portfolio component for arts-track applicants.",
-  },
+ 
 ] as const;
 
 const included = [
   {
     title: "Personalized development plan",
-    body: "We start with where the student is — not a template. Each student gets a written plan with skill targets, project sequence, and target schools.",
+    body: "We start with where the student is. Each student gets a tailored, written plan with skill targets, project sequence, and target schools.",
   },
   {
     title: "Two or more parent meetings",
@@ -66,7 +80,7 @@ const included = [
   },
   {
     title: "Professional photography & video",
-    body: "Finished work is photographed and filmed in-studio so students submit clean, properly lit documentation — not iPhone snapshots.",
+    body: "Finished work is photographed and filmed in-studio so students submit clean, properly lit documentation.",
   },
   {
     title: "Optional NYC application portal support",
@@ -78,7 +92,7 @@ const curriculum = [
   {
     label: "Foundations",
     title: "Drawing fundamentals",
-    body: "Proportion, line weight, contour, gesture, and value structure — drawn from observation, not reference photos.",
+    body: "Proportion, line weight, contour, gesture, and value structure are taught.",
   },
   {
     label: "Color",
@@ -88,7 +102,7 @@ const curriculum = [
   {
     label: "Composition",
     title: "Composition & idea",
-    body: "How to frame a piece, where to put the focus, and how to develop personal subject matter — not just demonstrate skill.",
+    body: "How to frame a piece, where to put the focus, and how to develop personal subject matter that goes beyond just demonstrating skill.",
   },
   {
     label: "Portfolio",
@@ -99,31 +113,31 @@ const curriculum = [
 
 const timeline = [
   {
-    when: "12+ months out",
-    title: "Foundations year",
+    when: "6+ months out",
+    title: "Foundations period",
     body: "Ideal start. Students build skill before portfolio-specific work begins — this is when 7th & 8th graders should start.",
   },
   {
-    when: "6–9 months out",
+    when: "3-4 months out",
     title: "Portfolio build",
     body: "Project sequence targeted at each school's specific requirements. Most schools require 3–5 finished pieces plus observational drawings.",
   },
   {
-    when: "2–3 months out",
-    title: "Audition prep",
-    body: "Timed home tests, in-person audition practice, and review of how to present work on the day.",
-  },
-  {
     when: "Submission window",
     title: "Documentation & submit",
-    body: "We photograph and film final work and help families through the MySchools portal and school-specific portals.",
+    body: "We photograph and film final work videos and help families through the MySchools portal and school-specific portals.",
+  },
+  {
+    when: "Post-submission",
+    title: "Pre-high school",
+    body: "After submission is more important than submitting the portfolio. Students continue refining their technical skills, adapting to any portfolio revisions or additional requirements requested by schools, and expanding their artistic abilities through new mediums such as charcoal, watercolor, and more. Whether they attend an art high school, an independent school, or another academic path, continued art education helps them grow as artists and prepares them for future opportunities.",
   },
 ] as const;
 
 export default function HsPrep() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">
@@ -135,16 +149,13 @@ export default function HsPrep() {
             className="-top-28 -right-40 w-[42rem] h-[42rem] opacity-40"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Portfolio prep · grades 7–9
-            </p>
+            
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
             High School Portfolio Prep
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
-              Personalized portfolio prep for NYC's specialized art high
-              schools and select independent programs. Foundations-first,
-              built around each student, taught by working artists.
+              Personalized portfolio prep for 7th and 8th graders to get into NYC's specialized art high
+              schools and select independent programs.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <SquareBookingLink service="consultation" variant="primary" size="lg">
@@ -178,16 +189,14 @@ export default function HsPrep() {
           <div className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
-                <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-                  Who it's for
-                </p>
+                
                 <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
-                  7th, 8th, and 9th graders applying to art high schools.
+                  Who it's for
                 </h2>
               </div>
               <div className="space-y-6 text-lg text-ink leading-relaxed">
                 <p>
-                  Most of our students start in 7th or early 8th grade — that
+               This class is for 7th, 8th, and 9th graders applying to art high schools. Most of our students start in 7th or early 8th grade, which
                   gives us enough runway to build foundations before
                   portfolio-specific work begins. We also take students later
                   in the cycle, but the earlier the start, the more grounded
@@ -195,7 +204,7 @@ export default function HsPrep() {
                 </p>
                 <p>
                   Students do not need prior formal training. They do need to
-                  want to be there — portfolio prep is real work, and we
+                  want to be there. portfolio prep is real work, and we
                   expect students to show up to studio sessions and home
                   assignments.
                 </p>
@@ -206,13 +215,10 @@ export default function HsPrep() {
 
         {/* ─── What's included ──────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
+          <div className="flex items-baseline gap-4 mb-4">
+            
+            <h2 className="font-display text-5xl text-ink">
               What's included
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              The full package
             </h2>
           </div>
 
@@ -220,7 +226,7 @@ export default function HsPrep() {
             {included.map((item, i) => (
               <article
                 key={i}
-                className="relative isolate p-7 bg-paper-deep/40 border border-paper-edge/60 rounded-lg"
+                className="relative isolate p-7 bg-paper/60 border border-paper-edge/60 rounded-lg"
               >
                 <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint">
                   0{i + 1}
@@ -234,31 +240,49 @@ export default function HsPrep() {
               </article>
             ))}
           </div>
+              {/* ─── Bento gallery ──────────────────────────────── */}
+              <div className="mt-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
+            {gallery.map((g, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                  g.span
+                )}
+              >
+                <Image
+                  src={g.img}
+                  alt="Students and work from the 2D animation class at Ko Art Studio"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+          
         </section>
 
         {/* ─── Schools ──────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
+          <div className="flex items-baseline gap-4 mb-4">
+            <h2 className="font-display text-5xl text-ink">
               Schools we prep for
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              Specialized &amp; independent
             </h2>
           </div>
 
-          <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-10">
+          <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-4">
             Each school has its own portfolio requirements and audition
             format. We tailor each student's project sequence to their
-            specific school list — there's no one-size-fits-all portfolio.
+            specific school list. There's no one-size-fits-all portfolio.
           </p>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {schools.map((s) => (
               <article
                 key={s.name}
-                className="p-5 bg-paper border border-paper-edge/60 rounded-lg"
+                className="p-5 bg-harbour-soft/40 border border-paper-edge/60 rounded-lg"
               >
                 <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint">
                   {s.type}
@@ -281,6 +305,9 @@ export default function HsPrep() {
               See where our 2025 students got in →
             </Link>
           </div>
+
+           
+
         </section>
 
         {/* ─── Curriculum ───────────────────────────────────── */}
@@ -293,11 +320,11 @@ export default function HsPrep() {
           <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
-                <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
+                <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-soft">
                   Curriculum
                 </p>
                 <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
-                  Foundation first. Portfolio second.
+                  Foundations first, portfolio second
                 </h2>
                 <p className="mt-6 text-lg text-ink-soft leading-relaxed">
                   Strong portfolios don't come from drilling for a specific
@@ -330,12 +357,9 @@ export default function HsPrep() {
         {/* ─── Timeline ─────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
           <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Timeline
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              When to start
+           
+            <h2 className="font-display text-5xl text-ink">
+            Suggested timeline
             </h2>
           </div>
 
@@ -363,23 +387,7 @@ export default function HsPrep() {
           </ol>
         </section>
 
-        {/* ─── Testimonial ──────────────────────────────────── */}
-        <section className="grain relative isolate">
-          <PaintStroke
-            variant="blob"
-            seed={3}
-            className="-top-24 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] opacity-30"
-          />
-          <div className="mx-auto max-w-4xl px-4 md:px-6 py-28 text-center">
-            <p className="font-display text-3xl md:text-5xl leading-[1.18] text-ink">
-              "Thanks to Ko, I was able to believe in myself going into
-              LaGuardia."
-            </p>
-            <p className="mt-8 font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Max · LaGuardia &amp; Frank Sinatra, 2025
-            </p>
-          </div>
-        </section>
+      
 
         {/* ─── CTA ──────────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-32 pt-8">
@@ -390,11 +398,11 @@ export default function HsPrep() {
               className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[44rem] h-[44rem] opacity-25"
             />
             <div className="max-w-3xl mx-auto">
-              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
+              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-soft">
                 Start with a conversation
               </p>
               <h2 className="mt-4 font-display text-5xl md:text-6xl leading-[1.05] text-ink">
-                Free 45-minute consultation.
+                Free 45-minute consultation
               </h2>
               <p className="mt-6 text-lg text-ink-soft leading-relaxed">
                 We'll review your child's current work, assess where they

@@ -92,7 +92,7 @@ const accentClass: Record<string, string> = {
 export default function SummerCollective() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">

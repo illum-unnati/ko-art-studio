@@ -22,7 +22,7 @@ const hsSchools = [
   "Murrow",
   "Packer",
   "St. Ann's",
-  "Bay Ridge Prep",
+  
 ] as const;
 
 const collegeSchools = [
@@ -80,7 +80,7 @@ const collegeStudents = [
 export default function Results() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">
@@ -92,10 +92,8 @@ export default function Results() {
             className="-top-28 -right-44 w-[40rem] h-[40rem] opacity-35"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-16">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Results · class of 2025
-            </p>
-            <h1 className="mt-6 font-display italic text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-4xl text-ink">
+            
+            <h1 className="mt-6 pb-6 font-display italic text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-4xl text-ink">
               Where our students{" "}
               <span className="text-crimson relative inline-block">
                 get in.
@@ -119,39 +117,22 @@ export default function Results() {
 
         {/* ─── High School Placements ───────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-10">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-              High school
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display italic text-3xl text-ink">
+          <div className="flex items-baseline gap-4 mb-4">
+          <h2 className="font-display italic text-3xl text-ink">
               Class of 2025
             </h2>
+            
+            
           </div>
 
           <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-10">
             Our high school portfolio students apply to NYC's specialized art
-            high schools and select private programs. Below are the schools
-            they've been accepted to, and a few of the students who got in.
+            high schools and select private programs. 
           </p>
 
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint mb-3">
-            Accepted schools
-          </p>
-          <ul className="flex flex-wrap gap-2 mb-14">
-            {hsSchools.map((s) => (
-              <li
-                key={s}
-                className="px-3 py-1.5 border border-paper-edge/70 rounded-full text-sm text-ink bg-paper"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
+          
 
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint mb-4">
-            Students · 2025
-          </p>
+          
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {hsStudents.map((s, i) => (
               <article

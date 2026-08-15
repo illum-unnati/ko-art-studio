@@ -36,13 +36,13 @@ type Tile = ScatterImage & Position;
 // Larger tiles, biased right + lower so the left-aligned hero copy stays
 // clear on first paint.
 const DESKTOP_POSITIONS: Position[] = [
-  { left: 60, top: 4, width: 214, rotate: -6 },
-  { left: 82, top: 24, width: 186, rotate: 5 },
-  { left: 68, top: 50, width: 198, rotate: -3 },
-  { left: 90, top: 66, width: 172, rotate: 7 },
+  { left: 60, top: 24, width: 214, rotate: -6 },
+  { left: 82, top: 24, width: 246, rotate: 5 },
+  { left: 68, top: 50, width: 248, rotate: -3 },
+  { left: 90, top: 66, width: 222, rotate: 7 },
   { left: 56, top: 76, width: 204, rotate: 9 },
-  { left: 43, top: 84, width: 162, rotate: -9 },
-  { left: 93, top: 42, width: 150, rotate: -12 },
+  { left: 73, top: 74, width: 262, rotate: -9 },
+  { left: 93, top: 42, width: 250, rotate: -12 },
 ];
 
 // Spread across the bounded mobile canvas.

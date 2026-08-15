@@ -84,7 +84,7 @@ const logistics = [
 export default function Mentorship() {
   return (
     <>
-      <AnnouncementBar />
+   
       <NavBar />
 
       <main className="flex-1">

@@ -60,7 +60,7 @@ const facts = [
 export default function TrialPage() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">

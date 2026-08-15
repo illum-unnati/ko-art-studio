@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { PaintStroke } from "@/components/PaintStroke";
+// Shared with the Intro to Drawing & Painting bento — single source of truth.
+import teenWork11 from "./intro-drawing-painting/assets/teen-11.webp";
 
 export const metadata = {
   title: "Classes",
@@ -29,26 +31,28 @@ type Group = {
   intro: string;
   blob: { seed: 1 | 2 | 3 | 4 | 5; className: string };
   classes: ClassCard[];
-  /** Pool of environmental photos. Each class card in this group gets
-   *  one assigned by index — adding more cards rotates through the pool. */
-  photoPool?: string[];
+  /** Pool of environmental photos (public-URL strings or static imports).
+   *  Each class card in this group gets one assigned by index — adding
+   *  more cards rotates through the pool. */
+  photoPool?: (string | StaticImageData)[];
 };
 
 const groups: Group[] = [
   {
-    id: "kids-teens",
-    eyebrow: "Kids & teens",
+    id: "kids",
+    eyebrow: "Kids",
     title: "Building the foundation",
     intro:
       "Our youngest programs introduce real art-making with the fundamentals underneath. Students move from cartooning and illustration into observational drawing and color theory as they grow.",
     blob: { seed: 5, className: "-top-24 -right-32 w-[34rem] h-[34rem] opacity-25" },
     photoPool: [
       "/envkids/envkids1.webp",
-      "/envkids/envkids2.webp",
+      teenWork11,
+      "/envkids/envkids3.webp",
     ],
     classes: [
       {
-        href: "/classes/kids",
+        href: "/classes/cartooning-illustration",
         title: "Cartooning & Illustration",
         audience: "Grades 3–5 · Ages 7–10",
         duration: "1.5 hours · weekly",
@@ -56,15 +60,24 @@ const groups: Group[] = [
           "A balanced introduction to art for young students — creativity paired with structured fundamentals.",
       },
       {
-        href: "/classes/teen",
+        href: "/classes/intro-drawing-painting",
         title: "Introduction to Drawing & Painting",
         audience: "Grades 5–7",
         duration: "2.5 hours · weekly",
         blurb:
           "Studio sessions covering color theory, observational drawing, and themed projects. The bridge to portfolio prep.",
       },
+      {
+        href: "/classes/2d-animation",
+        title: "2D Animation",
+        audience: "Grades 4-7",
+        duration: "2 hours · weekly",
+        blurb:
+          "Designed for students who love animation and are looking to learn both digital and analog techniques.",
+      },
     ],
   },
+
   {
     id: "portfolio",
     eyebrow: "Portfolio prep",
@@ -81,7 +94,7 @@ const groups: Group[] = [
     classes: [
       {
         href: "/classes/hs-prep",
-        title: "Art High School Portfolio",
+        title: "High School Portfolio Prep",
         audience: "Grades 7–9",
         duration: "Weekly · multi-year",
         blurb:
@@ -90,7 +103,7 @@ const groups: Group[] = [
       },
       {
         href: "/classes/college",
-        title: "Art College Portfolio",
+        title: "College Portfolio Prep",
         audience: "Grades 10–12 · U.S. & Europe",
         duration: "Weekly · multi-year",
         blurb:
@@ -114,12 +127,21 @@ const groups: Group[] = [
     ],
     classes: [
       {
-        href: "/classes/adult",
-        title: "Adult Beginner & Advanced",
+        href: "/classes/adult-beginner",
+        title: "Adult Beginner",
         audience: "All levels · adults",
-        duration: "2.5 hours · weekly",
+        duration: "2 hours · weekly",
         blurb:
-          "Separate beginner and advanced tracks. Foundations from scratch, or critique on your own work.",
+          "A foundations course tailored to each student",
+        highlight: "~$300 / month",
+      },
+      {
+        href: "/classes/adult-intermediate-advanced",
+        title: "Adult Intermediate - Advanced",
+        audience: "Adults · drop-in",
+        duration: "~2 hours · weekly",
+        blurb:
+          "Drop-in studio sessions for adults. Bring your own work or use what's on the table. No screens, just canvas.",
         highlight: "~$300 / month",
       },
       {
@@ -131,15 +153,7 @@ const groups: Group[] = [
           "Private mentorship with Mr. Ko — 40+ years as a working artist, 25+ group shows, 15+ solo exhibitions.",
         highlight: "By application",
       },
-      {
-        href: "/open-studio",
-        title: "Open Studio Club",
-        audience: "Adults · drop-in",
-        duration: "~2 hours · weekly",
-        blurb:
-          "Drop-in studio sessions for adults. Bring your own work or use what's on the table. No screens, just canvas.",
-        highlight: "$32 per session · now open",
-      },
+      
     ],
   },
   {
@@ -166,7 +180,7 @@ const groups: Group[] = [
 export default function ClassesIndex() {
   return (
     <>
-      <AnnouncementBar />
+
       <NavBar />
 
       <main className="flex-1">
@@ -194,9 +208,8 @@ export default function ClassesIndex() {
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
               Programs for kids, teens, college-bound students, and
-              adults — plus a one-on-one mentorship and a weekly adult
-              drop-in. Browse below, or book a free consultation if you'd
-              rather we recommend a fit.
+              adults; plus a one-on-one mentorship and a weekly adult
+              drop-in.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <SquareBookingLink service="consultation" variant="primary" size="lg">
@@ -210,7 +223,10 @@ export default function ClassesIndex() {
         </section>
 
         {/* ─── Section index ────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-16">
+        <section className="mx-auto max-w-7xl px-4 md:px-6 ">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-shadow-ink-soft mb-4">
+              Filter by:
+            </p>
           <nav aria-label="Class categories">
             <ul className="flex flex-wrap gap-2">
               {groups.map((g) => (

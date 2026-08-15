@@ -8,7 +8,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <div className="flex items-baseline gap-3">
             <span className="font-script text-5xl text-ink leading-none">
-              ko
+              ko art studio
             </span>
           </div>
           <p className="mt-4 max-w-md text-ink-soft text-sm leading-relaxed">
@@ -18,7 +18,7 @@ export function Footer() {
           <p className="mt-6 text-sm text-ink-soft">
             47 Bergen St, 2nd Floor
             <br />
-            Cobble Hill, Brooklyn, NY 11217
+            Cobble Hill, Brooklyn, NY 11201
           </p>
         </div>
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
@@ -5,6 +6,27 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { PaintStroke } from "@/components/PaintStroke";
+import { cn } from "@/lib/cn";
+import illo1 from "./assets/cartooningillo1.webp";
+import illo2 from "./assets/cartooningillo2.webp";
+import illo5 from "./assets/cartooningillo5.webp";
+import illo6 from "./assets/cartooningillo6.webp";
+import illo7 from "./assets/cartooningillo7.webp";
+import illo8 from "./assets/cartooningillo8.webp";
+import illo9 from "./assets/cartooningillo9.webp";
+
+/* Bento layout — on md+ this tiles a 4-col grid exactly:
+   [ 1  1  2  2 ]
+   [ 1  1  5  6 ]
+   [ 7  8  8  9 ]
+   On mobile it collapses to a simple 2-col grid.
+   */
+const gallery = [
+  { img: illo1, span: "md:col-span-2 md:row-span-2" },
+  { img: illo2, span: "md:col-span-2" },
+  { img: illo5, span: "" },
+  { img: illo9, span: "" },
+] as const;
 
 export const metadata = {
   title: "Kids Cartooning & Illustration (Grade 3-5)",
@@ -54,18 +76,18 @@ const skills = [
 ] as const;
 
 const logistics = [
-  { label: "Ages", value: "7–10 · grades 3–5" },
-  { label: "Class size", value: "Small group · max ~8 students" },
-  { label: "Session length", value: "90 minutes · weekly" },
+  { label: "Ages", value: "7–10 · Grades 3–5" },
+  { label: "Class size", value: "Small group · Max ~8 students" },
+  { label: "Session length", value: "90 minutes · Weekly" },
   { label: "Materials", value: "All supplies included" },
   { label: "Format", value: "In-studio · 47 Bergen St, 2nd Floor" },
-  { label: "Trial class", value: "Available — try a session before committing" },
+  
 ] as const;
 
 export default function Kids() {
   return (
     <>
-      <AnnouncementBar />
+   
       <NavBar />
 
       <main className="flex-1">
@@ -77,9 +99,7 @@ export default function Kids() {
             className="-top-28 -right-40 w-[42rem] h-[42rem] opacity-40"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Kids · grades 3–5 · ages 7–10
-            </p>
+            
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
               Cartooning &amp; Illustration
             
@@ -125,7 +145,7 @@ export default function Kids() {
             {skills.map((s, i) => (
               <article
                 key={i}
-                className="p-7 bg-paper-deep/40 border border-paper-edge/60 rounded-lg"
+                className="p-7 bg-paper/80 border border-paper-edge/60 rounded-lg"
               >
                 <p className="text-[11px] uppercase tracking-[0.18em] text-ink-soft">
                   0{i + 1}
@@ -137,6 +157,28 @@ export default function Kids() {
                   {s.body}
                 </p>
               </article>
+            ))}
+          </div>
+
+          {/* ─── Bento gallery ──────────────────────────────── */}
+          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
+            {gallery.map((g, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                  g.span
+                )}
+              >
+                <Image
+                  src={g.img}
+                  alt="Students and work from the 2D animation class at Ko Art Studio"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             ))}
           </div>
         </section>
@@ -151,9 +193,7 @@ export default function Kids() {
           <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-ink-faint">
-                  The details
-                </p>
+                
                 <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
                   What to expect
                 </h2>
@@ -168,7 +208,7 @@ export default function Kids() {
                     key={l.label}
                     className="border-t border-paper-edge/40 pt-4"
                   >
-                    <dt className="text-[11px] uppercase tracking-[0.18em] text-ink-faint">
+                    <dt className="text-[11px] uppercase tracking-[0.18em] font-medium text-ink-soft">
                       {l.label}
                     </dt>
                     <dd className="mt-1 font-display text-xl text-ink leading-snug">
@@ -227,36 +267,7 @@ export default function Kids() {
           </div>
         </section>
 
-        {/* ─── CTA ──────────────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-32 pt-8">
-          <div className="relative isolate  py-16 text-center">
-            <PaintStroke
-              variant="blob"
-              seed={4}
-              className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[44rem] h-[44rem] opacity-25"
-            />
-            <div className="max-w-3xl mx-auto">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                Try before you commit
-              </p>
-              <h2 className="mt-4 font-display text-5xl md:text-6xl leading-[1.05] text-ink">
-                Book a trial class
-              </h2>
-              <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-                One session, no commitment. See if it's the right fit
-                before signing up for a term.
-              </p>
-              <div className="mt-10 flex flex-wrap justify-center gap-3">
-                <SquareBookingLink service="trial" variant="primary" size="lg">
-                  Book a Trial Class
-                </SquareBookingLink>
-                <Button href="/faq" size="lg" variant="secondary">
-                  Read the FAQ
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+      
       </main>
 
       <Footer />

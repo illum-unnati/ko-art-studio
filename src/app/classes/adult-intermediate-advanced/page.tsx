@@ -1,13 +1,39 @@
 import Link from "next/link";
+import Image from "next/image";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
+import { cn } from "@/lib/cn";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { PaintStroke } from "@/components/PaintStroke";
 
+
+import illo1 from "./assets/adultbeginner1.webp";
+import illo2 from "./assets/adultbeginner2.webp";
+import illo3 from "./assets/adultbeginner3.webp";
+import illo4 from "./assets/adultbeginner4.webp";
+import illo5 from "./assets/adultbeginner5.webp";
+import illo6 from "./assets/adultbeginner6.webp";
+
+/* Bento layout — on md+ this tiles a 4-col grid exactly:
+   [ 1  1  2  2 ]
+   [ 1  1  5  6 ]
+   [ 7  8  8  9 ]
+   On mobile it collapses to a simple 2-col grid.
+   */
+   const gallery = [
+    
+    
+    { img: illo3, span: "md:row-span-2 md:col-span-2" }, 
+    { img: illo6, span: "md:row-span-2 " },
+    { img: illo5, span: "md:row-span-4" },
+    { img: illo2, span: "md:row-span-2 md:col-span-2" },{ img: illo1, span: " md:row-span-2" },
+   
+  ] as const;
+
 export const metadata = {
-  title: "Adult Beginner & Advanced Art Classes",
+  title: "Adult Intermediate - Advanced Art Classes",
   description:
     "Adult art classes in Cobble Hill, Brooklyn. Flexible, structured classes for working adults at every level. Beginners welcome — no prior experience needed. Drawing, painting, and personal project work.",
 };
@@ -40,7 +66,7 @@ const tracks = [
 const focus = [
   {
     title: "Real instruction",
-    body: "Demos, critique, and individual feedback every session — not just a room with paint. Working artists teach, not hobbyists.",
+    body: "Demos, critique, and individual feedback every session.",
   },
   {
     title: "Flexible attendance",
@@ -57,7 +83,7 @@ const focus = [
 ] as const;
 
 const logistics = [
-  { label: "Level", value: "Beginner & Advanced · adults" },
+  { label: "Level", value: "Beginner" },
   { label: "Class size", value: "Small group · max ~10 students" },
   { label: "Session length", value: "2.5 hours · weekly" },
   { label: "Tuition", value: "~$300 / month" },
@@ -68,106 +94,64 @@ const logistics = [
 export default function Adult() {
   return (
     <>
-      <AnnouncementBar />
+     
       <NavBar />
 
       <main className="flex-1">
         {/* ─── Hero ─────────────────────────────────────────── */}
         <section className="grain relative isolate">
-          <PaintStroke
-            variant="blob"
-            seed={2}
-            className="-top-28 -right-44 w-[42rem] h-[42rem] opacity-40"
-          />
-          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Adult classes · all levels
-            </p>
+    
+          <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-4">
+         
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
-              Adult beginner &amp; advanced
+              Adult Intermediate - Advanced 
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
-              Flexible, structured classes for working adults. Beginners
-              welcome — no prior experience needed. For people who want
-              real instruction in a calm studio, not a paint-and-sip.
+            Ready to take your skills to the next level? This program is designed for adult students who are looking for more structured instruction and a deeper, more refined approach to learning.
             </p>
+            <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
+            Our Intermediate - Advanced class focuses on strengthening technique, developing artistic direction, and helping you build confidence through more intentional and focused practice. Optional homework is provided for those who want to continue improving outside of class.            </p>
+            <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
+            This program is ideal for working adults who want a flexible yet serious learning environment that supports growth at their own pace.            </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <SquareBookingLink service="trial" variant="primary" size="lg">
                 Book a Trial Class
               </SquareBookingLink>
-              <Button href="/open-studio" size="lg" variant="secondary">
-                Just want to drop in? See Open Studio
-              </Button>
             </div>
           </div>
         </section>
 
-        {/* ─── Two tracks ───────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Two tracks
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              Beginner &amp; advanced
-            </h2>
-          </div>
+      
 
-          <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-12">
-            We run separate beginner and advanced sessions so the
-            instruction lands at the right level. Not sure which is right
-            for you? Book a trial — we'll figure it out together.
-          </p>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {tracks.map((t, i) => (
-              <article
+        {/* ─── What we offer────────────────────── */}
+        <section className="grain relative isolate">
+     
+          <div className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
+               {/* ─── Bento gallery ──────────────────────────────── */}
+               <div className="mt-24 pb-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
+            {gallery.map((g, i) => (
+              <div
                 key={i}
-                className="relative isolate p-8 bg-paper-deep/40 border border-paper-edge/60 rounded-lg deckle"
+                className={cn(
+                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                  g.span
+                )}
               >
-                <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint">
-                  {t.label}
-                </p>
-                <h3 className="mt-3 font-display text-3xl text-ink leading-tight">
-                  {t.title}
-                </h3>
-                <p className="mt-4 text-[15px] text-ink leading-relaxed">
-                  {t.body}
-                </p>
-                <ul className="mt-6 space-y-2">
-                  {t.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex gap-3 text-[14px] text-ink-soft leading-relaxed"
-                    >
-                      <span className="text-crimson font-display" aria-hidden>
-                        ·
-                      </span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+                <Image
+                  src={g.img}
+                  alt="Students and work from the 2D animation class at Ko Art Studio"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             ))}
           </div>
-        </section>
-
-        {/* ─── What makes this different ────────────────────── */}
-        <section className="grain relative isolate">
-          <PaintStroke
-            variant="blob"
-            seed={4}
-            className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
-          />
-          <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-            <div className="flex items-baseline gap-4 mb-12">
-              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-                What's different
-              </p>
-              <span className="h-px flex-1 bg-paper-edge/60" />
-              <h2 className="font-display text-3xl text-ink">
-                Made for working adults
+            <div className="flex items-baseline gap-4 mb-12 mt-4">
+             
+              <h2 className="font-display text-5xl text-ink">
+                What we offer
               </h2>
             </div>
 
@@ -188,8 +172,12 @@ export default function Adult() {
                   </p>
                 </article>
               ))}
+              
             </div>
+
+                
           </div>
+          
         </section>
 
         {/* ─── Logistics ────────────────────────────────────── */}
@@ -200,7 +188,7 @@ export default function Adult() {
                 The details
               </p>
               <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
-                What to expect.
+                What to expect
               </h2>
               <p className="mt-6 text-lg text-ink-soft leading-relaxed">
                 Tuition is monthly, with flexible attendance and make-up
@@ -232,25 +220,7 @@ export default function Adult() {
             Also for adults
           </p>
           <div className="grid gap-6 md:grid-cols-2">
-            <Link
-              href="/open-studio"
-              className="group relative isolate p-8 bg-paper-deep/40 border border-paper-edge/60 rounded-lg deckle"
-            >
-              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-                Drop-in
-              </p>
-              <h3 className="mt-3 font-display text-3xl text-ink leading-tight group-hover:text-crimson transition">
-                Open Studio Club
-              </h3>
-              <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">
-                Weekly drop-in sessions for adults who want studio time
-                without a commitment. $32 a session. No screens, just
-                canvas.
-              </p>
-              <span className="mt-5 inline-flex items-center gap-1 text-sm text-crimson group-hover:gap-2 transition-all">
-                See Open Studio <span aria-hidden>→</span>
-              </span>
-            </Link>
+            
 
             <Link
               href="/classes/mentorship"
@@ -290,7 +260,7 @@ export default function Adult() {
               </h2>
               <p className="mt-6 text-lg text-ink-soft leading-relaxed">
                 One session, no commitment. Bring whatever you want to
-                work on — or nothing at all. We'll figure out the right
+                work on, or nothing at all. We'll figure out the right
                 level together.
               </p>
               <div className="mt-10 flex flex-wrap justify-center gap-3">

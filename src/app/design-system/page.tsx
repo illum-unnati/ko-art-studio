@@ -32,7 +32,7 @@ const swatches = [
 export default function DesignSystemPage() {
   return (
     <>
-      <AnnouncementBar />
+  
       <NavBar />
 
       <main className="grain mx-auto max-w-7xl px-4 md:px-6 py-16">

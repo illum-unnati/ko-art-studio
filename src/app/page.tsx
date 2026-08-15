@@ -76,7 +76,7 @@ const programs = [
 export default function Home() {
   return (
     <>
-      <AnnouncementBar />
+  
       <NavBar />
 
       <main className="flex-1">
@@ -89,7 +89,7 @@ export default function Home() {
 
           <div className="relative z-10 pointer-events-none mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-28 md:min-h-[42rem]">
             
-            <h1 className="mt-2 font-display font-semibold text-4xl md:text-5xl leading-[1.30] tracking-tight max-w-2xl text-ink">
+            <h1 className="mt-2 font-display  text-4xl md:text-5xl leading-[1.30] tracking-tight max-w-2xl text-ink">
               Art classes{" "}
               <span className="text-crimson relative inline">
                 for all ages
@@ -147,7 +147,7 @@ export default function Home() {
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
                
-                <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.30] tracking-tight text-ink">
+                <h2 className="font-display text-4xl md:text-5xl leading-[1.30] tracking-tight text-ink">
                   Strong creations come from strong foundations
                 </h2>
               </div>
@@ -189,7 +189,7 @@ export default function Home() {
                   />
                 </div>
                 <div className = "flex flex-col">
-                <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.30] tracking-tight text-ink text-left ">
+                <h2 className="font-display text-4xl md:text-5xl leading-[1.30] tracking-tight text-ink text-left ">
                   From Seoul to Brooklyn
                 </h2>
                 <div className="mx-auto mt-6 pb-6 max-w-2xl space-y-4 text-ink-soft text-[17px] leading-relaxed text-left">
@@ -224,7 +224,7 @@ export default function Home() {
             />
             <div className="max-w-3xl mx-auto">
              
-              <h2 className="mt-4 font-semibold font-display text-5xl md:text-6xl leading-[1.05] text-ink">
+              <h2 className="mt-4 font-sans text-5xl md:text-6xl leading-[1.05] text-ink">
                 Not sure where to start?
               </h2>
               <p className="mt-6 text-lg text-ink-soft leading-relaxed">

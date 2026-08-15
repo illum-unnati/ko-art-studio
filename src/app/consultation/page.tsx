@@ -41,7 +41,7 @@ const facts = [
 export default function ConsultationPage() {
   return (
     <>
-      <AnnouncementBar />
+   
       <NavBar />
 
       <main className="flex-1">

@@ -1,11 +1,37 @@
 import Link from "next/link";
+import Image from "next/image";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
+import { cn } from "@/lib/cn";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { StatBadge } from "@/components/StatBadge";
 import { PaintStroke } from "@/components/PaintStroke";
+
+
+import illo1 from "./assets/collegeprep1.webp";
+import illo2 from "./assets/collegeprep2.webp";
+import illo3 from "./assets/collegeprep3.webp";
+import illo4 from "./assets/collegeprep4.webp";
+import illo5 from "./assets/collegeprep5.webp";
+import illo6 from "./assets/collegeprep6.webp";
+
+/* Bento layout — on md+ this tiles a 4-col grid exactly:
+   [ 1  1  2  2 ]
+   [ 1  1  5  6 ]
+   [ 7  8  8  9 ]
+   On mobile it collapses to a simple 2-col grid.
+   */
+   const gallery = [
+    { img: illo1, span: "md:col-span-2 md:row-span-2" },
+    { img: illo4, span: "md:row-span-2" },
+    { img: illo3, span: "" }, 
+    { img: illo6, span: "md:row-span-2 " },
+    { img: illo5, span: "" },
+    { img: illo2, span: "md:row-span-2 md:col-span-2" },
+   
+  ] as const;
 
 export const metadata = {
   title: "Art College Portfolio Prep",
@@ -15,18 +41,18 @@ export const metadata = {
 
 const usSchools = [
   { name: "Cornell", note: "Architecture, Art & Planning · Ithaca, NY" },
-  { name: "Pratt", note: "Communications design, fine art · Brooklyn" },
-  { name: "Parsons", note: "Design and fine art · The New School · NYC" },
-  { name: "School of Visual Arts (SVA)", note: "Advertising, illustration, fine art · NYC" },
+  { name: "Pratt", note: "Communications design, Fine Art · Brooklyn" },
+  { name: "Parsons", note: "Design and Fine Art · The New School · NYC" },
+  { name: "School of Visual Arts (SVA)", note: "Advertising, Illustration, Fine art · NYC" },
   { name: "RISD", note: "Rhode Island School of Design · Providence" },
   { name: "University of Michigan", note: "Stamps School of Art & Design · Ann Arbor" },
 ] as const;
 
 const ukSchools = [
   { name: "University of the Arts London (UAL)", note: "Central Saint Martins, Camberwell, Chelsea, Wimbledon" },
-  { name: "Goldsmiths", note: "Fine art · University of London" },
+  { name: "Goldsmiths", note: "Fine Art · University of London" },
   { name: "Royal College of Art", note: "Postgraduate · London" },
-  { name: "Slade", note: "Fine art · University College London" },
+  { name: "Slade", note: "Fine Art · University College London" },
 ] as const;
 
 const tracks = [
@@ -47,15 +73,15 @@ const tracks = [
 const included = [
   {
     title: "Personalized portfolio plan",
-    body: "We start with the student's actual interests and target schools — not a template. Each student gets a written plan with project sequence, voice direction, and deadlines.",
+    body: "We start with the student's actual interests and target schools. Each student gets a written plan with project sequence, voice direction, and deadlines.",
   },
   {
     title: "Concept & voice development",
-    body: "College portfolios are about thinking, not just skill. We work with students to find a body of work — recurring themes, materials, ideas — that's actually theirs.",
+    body: "College portfolios are about thinking, not just skill. We work with students to find a body of work with recurring themes, materials, and ideas that are actually theirs.",
   },
   {
     title: "Sketchbook & process work",
-    body: "European schools especially want to see process. We help students develop sketchbooks that document research, experiments, and iteration — not just finished pieces.",
+    body: "European schools especially want to see process. We help students develop sketchbooks that document research, experiments, and iteration.",
   },
   {
     title: "School selection & application strategy",
@@ -63,7 +89,7 @@ const included = [
   },
   {
     title: "Professional documentation",
-    body: "In-studio photography and short process videos of finished work. Portfolios that look like they belong next to the work of current students at these schools.",
+    body: "In-studio photography and short process videos of finished work.",
   },
   {
     title: "Interview & SlideRoom support",
@@ -85,42 +111,42 @@ const curriculum = [
   {
     label: "Process",
     title: "Sketchbooks & research",
-    body: "Visual research, idea development, source material, and iteration — the parts schools look at as closely as finished work.",
+    body: "Visual research, idea development, source material, and iteration.",
   },
   {
     label: "Range",
     title: "Cross-medium experimentation",
-    body: "Printmaking, collage, digital, sculpture — encouraged when relevant. Schools want students who think across mediums.",
+    body: "Printmaking, collage, digital, sculpture are encouraged, when relevant. Schools want students who think across mediums.",
   },
 ] as const;
 
 const timeline = [
   {
-    when: "Sophomore year",
-    title: "Ideal start",
-    body: "Two years of runway. Students build a foundation, find a personal direction, and have time to develop a real body of work.",
+    when: "1+ year out",
+    title: "Foundations",
+    body: "Ideal start. Students build skill before portfolio-specific work begins. This is when 9th-10th graders should start.",
   },
   {
-    when: "Junior year",
-    title: "Body of work",
-    body: "Project sequence based on target schools. Concept clarification, sketchbook development, and finished pieces across multiple mediums.",
+    when: "8-12 months out",
+    title: "Portfolio",
+    body: "Project sequence targeted at each school's specific requirements. Most schools require minimum 6 to 20 finished pieces that include observational, oil painting, portrait etc.",
   },
   {
-    when: "Summer before senior year",
-    title: "Portfolio lock",
-    body: "Final 10–20 pieces selected. Documentation, sketchbook scans, and artist statement drafts completed before fall deadlines.",
+    when: "Submission window",
+    title: "Documentation and submit",
+    body: "We photograph and final works to get the best photo of their works to get submitted.",
   },
   {
-    when: "Fall of senior year",
-    title: "Submit & interview",
-    body: "SlideRoom, Common App, UCAS, and direct portals. Interview prep for schools that require it. Rolling decisions through spring.",
+    when: "Post-submission",
+    title: "Pre-college build",
+    body: "After submission is more refined training. We closely look at what each student was lacking and create a close to complete understanding of foundation plus creative workshops exercise. ",
   },
 ] as const;
 
 export default function College() {
   return (
     <>
-      <AnnouncementBar />
+    
       <NavBar />
 
       <main className="flex-1">
@@ -132,17 +158,14 @@ export default function College() {
             className="-top-28 -right-44 w-[42rem] h-[42rem] opacity-40"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Portfolio prep · grades 10–12
-            </p>
+            
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
               College portfolio prep
               
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
-              Specialized tracks for U.S. and European art schools — each
-              path with its own portfolio expectations, application process,
-              and admissions calendar. Built around each student's voice.
+              For high-schoolers aiming to apply to U.S. and European art schools. We take into account each school's portfolio expectations, application process,
+              and admissions calendar to offer a tailored path for each student.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <SquareBookingLink service="consultation" variant="primary" size="lg">
@@ -173,29 +196,25 @@ export default function College() {
             seed={4}
             className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
           />
-          <div className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-            <div className="flex items-baseline gap-4 mb-12">
-              <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-                Two tracks
-              </p>
-              <span className="h-px flex-1 bg-paper-edge/60" />
-              <h2 className="font-display text-3xl text-ink">
-                U.S. &amp; Europe
+          <div className="mt-24 mx-auto max-w-7xl px-4 md:px-6 pb-24">
+            <div className="flex items-baseline gap-4 mb-4">
+              
+              <h2 className="font-display text-5xl text-ink">
+                Two tracks: U.S. &amp; Europe
               </h2>
             </div>
 
             <p className="max-w-2xl text-[17px] text-ink-soft leading-relaxed mb-12">
               U.S. and European art schools want different things from a
               portfolio. We work with each student on the specific track that
-              fits their school list — or both, if they're applying across
-              the Atlantic.
+              fits their school list.
             </p>
 
             <div className="grid gap-6 md:grid-cols-2">
               {tracks.map((t, i) => (
                 <article
                   key={i}
-                  className="relative isolate p-8 bg-paper-deep/40 border border-paper-edge/60 rounded-lg deckle"
+                  className="relative isolate p-8 bg-harbour-soft/40 border border-paper-edge/60 rounded-lg deckle"
                 >
                   <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint">
                     {t.label}
@@ -216,27 +235,24 @@ export default function College() {
         </section>
 
         {/* ─── Schools ──────────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Schools we prep for
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              Partner programs
+        <section className="mt-24 mx-auto max-w-7xl px-4 md:px-6 pb-24">
+          <div className="flex items-baseline gap-4 mb-8">
+            
+            <h2 className="font-display text-5xl text-ink">
+              Schools we've prepped for
             </h2>
           </div>
 
           <div className="grid gap-12 md:grid-cols-2">
             <div>
-              <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint mb-4">
+              <p className="font-medium text-xl uppercase tracking-[0.18em] text-ink-soft/70 mb-4">
                 United States
               </p>
               <ul className="space-y-3">
                 {usSchools.map((s) => (
                   <li
                     key={s.name}
-                    className="p-4 bg-paper border border-paper-edge/60 rounded-lg"
+                    className="p-4 bg-paper/50 border border-paper-edge/60 rounded-lg"
                   >
                     <p className="font-display  text-xl text-ink leading-tight">
                       {s.name}
@@ -250,7 +266,7 @@ export default function College() {
             </div>
 
             <div>
-              <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint mb-4">
+              <p className="font-medium text-xl uppercase tracking-[0.18em] text-ink-soft/70 mb-4">
                 United Kingdom &amp; Europe
               </p>
               <ul className="space-y-3">
@@ -279,15 +295,36 @@ export default function College() {
               See where our 2025 students got in →
             </Link>
           </div>
+
+                   {/* ─── Bento gallery ──────────────────────────────── */}
+                   <div className="mt-24 grid grid-cols-2 md:grid-cols-4 auto-rows-[42vw] sm:auto-rows-[30vw] md:auto-rows-[190px] gap-3 md:gap-4">
+            {gallery.map((g, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                  g.span
+                )}
+              >
+                <Image
+                  src={g.img}
+                  alt="Students and work from the 2D animation class at Ko Art Studio"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* ─── What's included ──────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
+        <section className="mt-24 mx-auto max-w-7xl px-4 md:px-6 pb-24">
+          <div className="flex items-baseline gap-4 mb-8">
+          <h2 className="font-display text-5xl text-ink">
               What's included
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
+            </h2>
            
           </div>
 
@@ -295,7 +332,7 @@ export default function College() {
             {included.map((item, i) => (
               <article
                 key={i}
-                className="p-7 bg-paper-deep/40 border border-paper-edge/60 rounded-lg"
+                className="p-7  bg-paper/70 border border-paper-edge/60 rounded-lg"
               >
                 <p className="font-medium text-[11px] uppercase tracking-[0.18em] text-ink-faint">
                   0{i + 1}
@@ -358,12 +395,9 @@ export default function College() {
 
         {/* ─── Timeline ─────────────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-medium text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Timeline
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
+          <div className="flex items-baseline gap-4 mb-8">
+            
+            <h2 className="font-display text-5xl text-ink">
               When to start
             </h2>
           </div>

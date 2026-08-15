@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { NavBar } from "@/components/NavBar";
@@ -5,6 +6,21 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
 import { PaintStroke } from "@/components/PaintStroke";
+import { cn } from "@/lib/cn";
+import teen1 from "./assets/teen-1.webp";
+import teen2 from "./assets/teen-2.webp";
+import teen3 from "./assets/teen-3.webp";
+import teen4 from "./assets/teen-4.webp";
+import teen5 from "./assets/teen-5.webp";
+import teen6 from "./assets/teen-6.webp";
+import teen7 from "./assets/teen-7.webp";
+import teen8 from "./assets/teen-8.webp";
+import teen9 from "./assets/teen-9.webp";
+import teen10 from "./assets/teen-10.webp";
+import teen11 from "./assets/teen-11.webp";
+import teen12 from "./assets/teen-12.webp";
+import teen13 from "./assets/teen-13.webp";
+import teen14 from "./assets/teen-14.webp";
 
 export const metadata = {
   title: "Intro to Drawing & Painting",
@@ -12,26 +28,45 @@ export const metadata = {
     "Intro to Drawing & Painting for grades 5–7 in Cobble Hill, Brooklyn. 2.5-hour weekly studio sessions covering color theory, observational drawing, and themed projects. The bridge between kids class and portfolio prep.",
 };
 
+/* Bento gallery. On md+ a 4-col dense mosaic: wide landscape features
+   (col-span-2) and tall portrait features (row-span-2), with 1×1 fillers
+   packed into the gaps via grid-auto-flow: dense. On mobile it collapses
+   to a plain 2-col grid. */
+const gallery = [
+  { img: teen1, span: "md:row-span-2" },
+  { img: teen7, span: "md:row-span-2" },
+
+  { img: teen13, span: "md:row-span-2 md:col-span-2" },
+  { img: teen9, span: "md:row-span-2" },
+  
+
+ 
+  { img: teen11, span: "md:row-span-2" },
+
+  { img: teen14, span: "md:row-span-2" },
+  { img: teen12, span: "md:row-span-2" },
+] as const;
+
 const focusAreas = [
   {
     label: "Observation",
     title: "Drawing from life",
-    body: "Still life, hands, environments. Students move past drawing from imagination and learn to actually see — proportion, value, contour, gesture.",
+    body: "Students move past drawing from imagination and learn to actually see proportion, value, contour, and gesture.",
   },
   {
     label: "Color",
     title: "Color theory & painting",
-    body: "How color actually works: temperature, mixing, complements, value. We work in watercolor, gouache, and acrylic — students learn what each medium is good at.",
+    body: "How color actually works: temperature, mixing, complements, value. We work in watercolor, gouache, and acrylic. Students learn what each medium is good at.",
   },
   {
     label: "Composition",
     title: "Themed projects",
-    body: "Each term has projects with a real prompt — character design, environment, self-portrait, color study series — so students apply skills to something they care about.",
+    body: "Each term has projects with a real prompt, from character design, environment, self-portrait, or color study series. Students end up applying their skills to something they care about.",
   },
   {
     label: "Voice",
     title: "Personal direction",
-    body: "By the end of the year, students start noticing what they like to make. The early signs of an artistic voice — and what we'll build on in portfolio prep.",
+    body: "By the end of the year, students start noticing what they like to make. The early signs of an artistic voice and what we'll build on in portfolio prep.",
   },
 ] as const;
 
@@ -60,17 +95,16 @@ const sessionStructure = [
 
 const logistics = [
   { label: "Ages", value: "Grades 5–7" },
-  { label: "Class size", value: "Small group · max ~10 students" },
-  { label: "Session length", value: "2.5 hours · weekly" },
-  { label: "Materials", value: "All studio supplies included" },
-  { label: "Sketchbook", value: "Personal sketchbook provided · taken between classes" },
-  { label: "Trial class", value: "Available — try a session first" },
+  { label: "Class size", value: "Small group · Max ~10 students" },
+  { label: "Session length", value: "2.5 hours · Weekly" },
+  { label: "Materials", value: "Personal sketchbook provided · Taken between classes" },
+
 ] as const;
 
 export default function Teen() {
   return (
     <>
-      <AnnouncementBar />
+      
       <NavBar />
 
       <main className="flex-1">
@@ -82,59 +116,26 @@ export default function Teen() {
             className="-top-28 -right-44 w-[42rem] h-[42rem] opacity-40"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 pt-20 pb-20">
-            <p className="text-sm uppercase tracking-[0.2em] text-ink-faint">
-              Teen · grades 5–7
-            </p>
+            
             <h1 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight max-w-5xl text-ink">
               Introduction to Drawing &amp; Painting
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
-              2.5-hour weekly studio sessions covering color theory,
-              observational drawing, and themed projects. The bridge
-              between kids class and portfolio prep — real studio time,
-              real instruction.
+              This class is for students in Grades 5-7. A weekly studio session covering color theory,
+              observational drawing, and themed projects.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <SquareBookingLink service="trial" variant="primary" size="lg">
                 Book a Trial Class
               </SquareBookingLink>
               <SquareBookingLink service="consultation" variant="secondary" size="lg">
-                Talk to us first
+                Book a Consultation
               </SquareBookingLink>
             </div>
           </div>
         </section>
 
-        {/* ─── Why this class ───────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-24">
-          <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                Why this class
-              </p>
-              <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
-                A studio, not a craft hour
-              </h2>
-            </div>
-            <div className="space-y-6 text-lg text-ink leading-relaxed">
-              <p>
-                This is the age where kids either drift away from art or
-                get serious about it. Most after-school art programs at
-                this age are still doing one-off crafts. We don't.
-              </p>
-              <p>
-                Students get 2.5 hours of real studio time, a personal
-                sketchbook they keep between sessions, and projects that
-                stretch over multiple weeks. The work starts to look like
-                work — not just an activity to fill an afternoon.
-              </p>
-              <p>
-                Students who finish this class are ready, if they want, to
-                move into portfolio prep for art high schools.
-              </p>
-            </div>
-          </div>
-        </section>
+       
 
         {/* ─── Focus areas ──────────────────────────────────── */}
         <section className="grain relative isolate overflow-hidden">
@@ -144,13 +145,9 @@ export default function Teen() {
             className="-top-24 -left-32 w-[34rem] h-[34rem] opacity-25"
           />
           <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-            <div className="flex items-baseline gap-4 mb-12">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                What students work on
-              </p>
-              <span className="h-px flex-1 bg-paper-edge/60" />
-              <h2 className="font-display text-3xl text-ink">
-                Four areas, year-round
+            <div className="flex items-baseline gap-4 mb-4">
+              <h2 className="font-display text-5xl text-ink">
+                What we cover
               </h2>
             </div>
 
@@ -172,42 +169,31 @@ export default function Teen() {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* ─── Session structure ────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
-          <div className="flex items-baseline gap-4 mb-12">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-              A 2.5-hour session
-            </p>
-            <span className="h-px flex-1 bg-paper-edge/60" />
-            <h2 className="font-display text-3xl text-ink">
-              How it runs
-            </h2>
-          </div>
-
-          <ol className="max-w-4xl mx-auto">
-            {sessionStructure.map((s, i) => (
-              <li
-                key={i}
-                className="grid grid-cols-1 gap-1.5 sm:grid-cols-[7rem_1fr] sm:gap-6 md:grid-cols-[11rem_1fr] py-6 border-t border-paper-edge/40 first:border-t-0"
-              >
-                <span className="font-mono text-sm md:text-base text-crimson pt-1">
-                  {s.minutes}
-                </span>
-                <div>
-                  <h3 className="font-display text-2xl text-ink leading-tight">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-[15px] text-ink leading-relaxed">
-                    {s.body}
-                  </p>
+            {/* ─── Bento gallery ──────────────────────────────── */}
+            <div className="mt-24 grid grid-cols-2 md:grid-cols-4 md:grid-flow-row-dense auto-rows-[44vw] sm:auto-rows-[30vw] md:auto-rows-[150px] gap-3 md:gap-4">
+              {gallery.map((g, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "relative overflow-hidden rounded-xl border border-paper-edge/60 bg-paper-deep/30",
+                    g.span
+                  )}
+                >
+                  <Image
+                    src={g.img}
+                    alt="Student work and studio moments from the Intro to Drawing & Painting class at Ko Art Studio"
+                    fill
+                    placeholder="blur"
+                    sizes="(min-width: 768px) 45vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
-              </li>
-            ))}
-          </ol>
+              ))}
+            </div>
+          </div>
         </section>
+
 
         {/* ─── Logistics ────────────────────────────────────── */}
         <section className="grain relative isolate overflow-hidden">
@@ -219,13 +205,11 @@ export default function Teen() {
           <div className="mx-auto max-w-7xl px-4 md:px-6 py-24">
             <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                  The details
-                </p>
+                
                 <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
                   What to expect
                 </h2>
-                <p className="mt-6 text-lg text-ink-soft leading-relaxed">
+                <p className="mt-4 text-lg text-ink-soft leading-relaxed">
                   Small group, weekly studio time, sketchbook included.
                   Trial sessions available before committing to a term.
                 </p>
@@ -236,7 +220,7 @@ export default function Teen() {
                     key={l.label}
                     className="border-t border-paper-edge/40 pt-4"
                   >
-                    <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
+                    <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-soft">
                       {l.label}
                     </dt>
                     <dd className="mt-1 font-display text-xl text-ink leading-snug">
@@ -251,13 +235,16 @@ export default function Teen() {
 
         {/* ─── Before / after ───────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-4 md:px-6 py-24">
+        <h2 className="mb-4 font-display text-4xl md:text-5xl leading-[1.05] text-ink">
+                  Related classes
+                </h2>
           <div className="grid gap-6 md:grid-cols-2">
             <Link
               href="/classes/kids"
               className="group relative isolate p-8 bg-paper-deep/40 border border-paper-edge/60 rounded-lg deckle"
             >
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                Before · grades 3–5
+                Before · Grades 3–5
               </p>
               <h3 className="mt-3 font-display text-3xl text-ink leading-tight group-hover:text-crimson transition">
                 Cartooning &amp; Illustration
@@ -293,36 +280,7 @@ export default function Teen() {
           </div>
         </section>
 
-        {/* ─── CTA ──────────────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 md:px-6 pb-32 pt-8">
-          <div className="relative isolate overflow-hidden py-16 text-center">
-            <PaintStroke
-              variant="blob"
-              seed={5}
-              className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[44rem] h-[44rem] opacity-25"
-            />
-            <div className="max-w-3xl mx-auto">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
-                Try before you commit
-              </p>
-              <h2 className="mt-4 font-display text-5xl md:text-6xl leading-[1.05] text-ink">
-                Book a trial class
-              </h2>
-              <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-                One session, no commitment. Bring a sketchbook if you have
-                one — we'll provide one if you don't.
-              </p>
-              <div className="mt-10 flex flex-wrap justify-center gap-3">
-                <SquareBookingLink service="trial" variant="primary" size="lg">
-                  Book a Trial Class
-                </SquareBookingLink>
-                <Button href="/faq" size="lg" variant="secondary">
-                  Read the FAQ
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        
       </main>
 
       <Footer />
