@@ -53,9 +53,8 @@ export default function HighSchoolArtClass() {
               and start developing a creative direction that's your own.
             </p>
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
-              Not a portfolio-prep track and not a one-off craft hour —
-              somewhere in between, for students who want to take art
-              seriously without committing to an application timeline.
+              This class is for students who want to take art
+              seriously, without committing to an application timeline.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <EnrollButtons slug="high-school-art-class" size="lg" />
@@ -104,7 +103,7 @@ export default function HighSchoolArtClass() {
                 </h2>
                 <p className="mt-6 text-lg text-ink-soft leading-relaxed">
                   A good fit for high schoolers who want to keep growing as
-                  artists — building skill, confidence, and a personal voice
+                  artists: building skill, confidence, and a personal voice
                   at their own pace.
                 </p>
               </div>

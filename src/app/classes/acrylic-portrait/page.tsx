@@ -102,7 +102,7 @@ export default function AcrylicPortrait() {
                   What to expect
                 </h2>
                 <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-                  A good fit for high schoolers who want to paint seriously —
+                  A good fit for high schoolers who want to paint seriously,
                   whether as a creative outlet or a step toward a stronger
                   portfolio.
                 </p>
@@ -139,7 +139,7 @@ export default function AcrylicPortrait() {
               </h3>
               <p className="mt-3 text-[15px] text-ink-soft leading-relaxed">
                 Skill and personal development for high schoolers who want to
-                grow across mediums, not just one.
+                grow across a variety of media. 
               </p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm text-crimson group-hover:gap-2 transition-all">
                 See the class <span aria-hidden>→</span>
