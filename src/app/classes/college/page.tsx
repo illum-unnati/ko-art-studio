@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/cn";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { StatBadge } from "@/components/StatBadge";
 import { PaintStroke } from "@/components/PaintStroke";
 
@@ -168,7 +169,8 @@ export default function College() {
               and admissions calendar to offer a tailored path for each student.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="consultation" variant="primary" size="lg">
+              <EnrollButtons slug="college" size="lg" />
+              <SquareBookingLink service="consultation" variant="secondary" size="lg">
                 Book a Free Consultation
               </SquareBookingLink>
               <Button href="/results" size="lg" variant="secondary">

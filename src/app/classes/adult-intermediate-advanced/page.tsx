@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/cn";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { PaintStroke } from "@/components/PaintStroke";
 
 
@@ -114,7 +115,8 @@ export default function Adult() {
             <p className="mt-8 max-w-2xl text-lg text-ink leading-relaxed">
             This program is ideal for working adults who want a flexible yet serious learning environment that supports growth at their own pace.            </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="trial" variant="primary" size="lg">
+              <EnrollButtons slug="adult-intermediate-advanced" size="lg" />
+              <SquareBookingLink service="trial" variant="secondary" size="lg">
                 Book a Trial Class
               </SquareBookingLink>
             </div>

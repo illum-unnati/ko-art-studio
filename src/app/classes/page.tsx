@@ -120,10 +120,10 @@ const groups: Group[] = [
       "Real instruction in a calm studio — not a paint-and-sip. From total beginners to adults with a developed practice, plus one-on-one mentorship with Mr. Ko.",
     blob: { seed: 3, className: "-top-24 -right-32 w-[34rem] h-[34rem] opacity-25" },
     photoPool: [
-      "/envadults/enva1.webp",
-      "/envadults/enva4.webp",
-      "/envadults/enva7.webp",
-      "/envadults/enva11.webp",
+      "/envadults/enva1.webp",    "/envadults/enva10.webp",
+      "/envadults/artmentorship.webp",
+   
+      
     ],
     classes: [
       {
@@ -157,24 +157,32 @@ const groups: Group[] = [
     ],
   },
   {
-    id: "seasonal",
-    eyebrow: "Seasonal",
-    title: "Short, immersive workshops.",
+    id: "extracurricular",
+    eyebrow: "Extracurricular",
+    title: "Beyond the core track",
     intro:
-      "Limited-run workshops with a specific focus and a finished piece at the end. Open to teens and adults.",
-    blob: { seed: 4, className: "-top-24 -left-32 w-[34rem] h-[34rem] opacity-25" },
+      "Skill-building and hobby classes for high schoolers that sit outside portfolio prep — a way to take art seriously without an application timeline.",
+    blob: { seed: 2, className: "-top-24 -right-32 w-[34rem] h-[34rem] opacity-25" },
     classes: [
       {
-        href: "/summer-collective",
-        title: "Summer Collective 2026",
-        audience: "Teens & adults · all levels",
-        duration: "4–5 day workshops · July & August",
+        href: "/classes/acrylic-portrait",
+        title: "Acrylic & Portrait",
+        audience: "Grades 8–11",
+        duration: "Tuesdays · weekly",
         blurb:
-          "Oil painting, charcoal portraits, 2D animation, and illustration. One medium, one week, one finished piece.",
-        highlight: "Summer 2026",
+          "A focused acrylic-painting and portraiture class — real technique in a relaxed but serious studio.",
+      },
+      {
+        href: "/classes/high-school-art-class",
+        title: "High School Art Class",
+        audience: "High school · skill & personal development",
+        duration: "Mon–Thu · weekly",
+        blurb:
+          "Fundamentals across drawing, painting, and mixed media, plus room to develop a personal direction.",
       },
     ],
   },
+
 ];
 
 export default function ClassesIndex() {
@@ -216,7 +224,7 @@ export default function ClassesIndex() {
               Filter by:
             </p>
           <nav aria-label="Class categories">
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2 gap-y-6">
               {groups.map((g) => (
                 <li key={g.id}>
                   <a

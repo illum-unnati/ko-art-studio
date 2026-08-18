@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { StatBadge } from "@/components/StatBadge";
 import { PaintStroke } from "@/components/PaintStroke";
 import { cn } from "@/lib/cn";
@@ -158,7 +159,8 @@ export default function HsPrep() {
               schools and select independent programs.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="consultation" variant="primary" size="lg">
+              <EnrollButtons slug="hs-prep" size="lg" />
+              <SquareBookingLink service="consultation" variant="secondary" size="lg">
                 Book a Free Consultation
               </SquareBookingLink>
               <Button href="/results" size="lg" variant="secondary">

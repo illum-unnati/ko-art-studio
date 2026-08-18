@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { PaintStroke } from "@/components/PaintStroke";
 import { cn } from "@/lib/cn";
 import illo1 from "./assets/cartooningillo1.webp";
@@ -79,7 +80,7 @@ const logistics = [
   { label: "Ages", value: "7–10 · Grades 3–5" },
   { label: "Class size", value: "Small group · Max ~8 students" },
   { label: "Session length", value: "90 minutes · Weekly" },
-  { label: "Materials", value: "All supplies included" },
+  { label: "Materials", value: "$60 material cost / semester" },
   { label: "Format", value: "In-studio · 47 Bergen St, 2nd Floor" },
   
 ] as const;
@@ -112,9 +113,7 @@ export default function Kids() {
             Our goal is to help young artists move beyond simply “making” art, and instead understand how to express ideas meaningfully through their work.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="cartooningIllustration" variant="primary" size="lg">
-                Enroll in Cartooning &amp; Illustration
-              </SquareBookingLink>
+              <EnrollButtons slug="cartooning-illustration" size="lg" />
               <SquareBookingLink service="consultation" variant="secondary" size="lg">
                 Book a consultation first
               </SquareBookingLink>

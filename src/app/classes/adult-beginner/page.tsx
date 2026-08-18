@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/cn";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { PaintStroke } from "@/components/PaintStroke";
 
 
@@ -114,9 +115,8 @@ export default function Adult() {
               real instruction in a calm studio, not a paint-and-sip.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="trial" variant="primary" size="lg">
-                Book a Trial Class
-              </SquareBookingLink>
+              <EnrollButtons slug="adult-beginner" size="lg" />
+          
             </div>
           </div>
         </section>

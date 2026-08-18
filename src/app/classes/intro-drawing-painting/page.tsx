@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { PaintStroke } from "@/components/PaintStroke";
 import { cn } from "@/lib/cn";
 import teen1 from "./assets/teen-1.webp";
@@ -97,7 +98,7 @@ const logistics = [
   { label: "Ages", value: "Grades 5–7" },
   { label: "Class size", value: "Small group · Max ~10 students" },
   { label: "Session length", value: "2.5 hours · Weekly" },
-  { label: "Materials", value: "Personal sketchbook provided · Taken between classes" },
+  { label: "Materials", value: "$40 material cost / semester" },
 
 ] as const;
 
@@ -125,9 +126,7 @@ export default function Teen() {
               observational drawing, and themed projects.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="trial" variant="primary" size="lg">
-                Book a Trial Class
-              </SquareBookingLink>
+              <EnrollButtons slug="intro-drawing-painting" size="lg" />
               <SquareBookingLink service="consultation" variant="secondary" size="lg">
                 Book a Consultation
               </SquareBookingLink>

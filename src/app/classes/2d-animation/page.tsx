@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
 import { SquareBookingLink } from "@/components/SquareBookingLink";
+import { EnrollButtons } from "@/components/EnrollButtons";
 import { PaintStroke } from "@/components/PaintStroke";
 import { cn } from "@/lib/cn";
 import illo1 from "./assets/cartooningillo1.webp";
@@ -110,9 +111,7 @@ export default function Kids() {
             Our goal is to help young artists learn more about the animation process field with moodboarding, idea development, character development, mock ups and more.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <SquareBookingLink service="cartooningIllustration" variant="primary" size="lg">
-                Enroll in 2D animation
-              </SquareBookingLink>
+              <EnrollButtons slug="2d-animation" size="lg" />
               <SquareBookingLink service="consultation" variant="secondary" size="lg">
                 Book a consultation first
               </SquareBookingLink>
