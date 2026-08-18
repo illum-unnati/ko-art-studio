@@ -186,7 +186,6 @@ export default function College() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 md:gap-10 items-end">
               <StatBadge value="95%" label="Placement" accent="crimson" />
               <StatBadge value="2" label="Tracks · US + EU" accent="harbour" />
-              <StatBadge value="10+" label="Partner schools" accent="ink" />
             </div>
           </div>
         </section>

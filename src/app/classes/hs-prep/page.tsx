@@ -176,7 +176,6 @@ export default function HsPrep() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 md:gap-10 items-end">
               <StatBadge value="97%" label="Acceptance" accent="crimson" />
               <StatBadge value="14/16" label="LaGuardia · 2025" accent="harbour" />
-              <StatBadge value="7" label="Partner schools" accent="ink" />
             </div>
           </div>
         </section>
@@ -306,7 +305,7 @@ export default function HsPrep() {
 
            
 
-        </section>
+        </section> 
 
         {/* ─── Curriculum ───────────────────────────────────── */}
         <section className="grain relative isolate">
