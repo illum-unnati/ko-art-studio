@@ -117,7 +117,7 @@ const groups: Group[] = [
     eyebrow: "Adults",
     title: "For working artists & beginners",
     intro:
-      "Real instruction in a calm studio — not a paint-and-sip. From total beginners to adults with a developed practice, plus one-on-one mentorship with Mr. Ko.",
+      "From total beginners to adults with a developed practice, we offer instruction in an open-environment.",
     blob: { seed: 3, className: "-top-24 -right-32 w-[34rem] h-[34rem] opacity-25" },
     photoPool: [
       "/envadults/enva1.webp",    "/envadults/enva10.webp",
